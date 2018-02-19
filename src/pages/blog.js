@@ -3,30 +3,20 @@ import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
-const Card = styled.article`
-  border-radius: 2px;
-  display: inline-block;
-  height: 10rem;
-  margin: 1rem;
-  padding: 1rem;
-  position: relative;
-  width: 10rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-  :hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
+const Date = styled.p`
+  color: #757575;
+  font-size: 0.8rem;
 `;
 
-const Post = ({ to, title, description }) => (
-  <Link to={to}>
-    <Card>
-      {title}
-      <br />
-      {description}
-    </Card>
-  </Link>
+const Post = ({ to, date, title, children }) => (
+  <article>
+    <Link to={to}>
+      <h3>{title}</h3>
+      {children}
+      <Date>Posted on {date}</Date>
+      <hr />
+    </Link>
+  </article>
 );
 
 const Section = styled.section`
@@ -35,12 +25,41 @@ const Section = styled.section`
   align-items: center;
 `;
 
-const Blog = () => (
+const Blog = ({ data }) => (
   <Section>
     <Helmet title="Blog" />
     <h1>Some thoughts</h1>
-    <Post to="/blog/welcome" title="Welcome!" description="Hello!" />
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <Post
+        key={node.id}
+        title={node.frontmatter.title}
+        date={node.frontmatter.date}
+        to={node.fields.slug}
+      >
+        {node.excerpt}
+      </Post>
+    ))}
   </Section>
 );
+
+export const query = graphql`
+  query BlogQuery {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default Blog;
