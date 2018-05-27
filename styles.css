@@ -4,25 +4,41 @@ body {
   --primary-color-dark: #75a478;
 
   font-family: Roboto, sans-serif;
+  margin: 0;
 }
 
 #home {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('profile.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  height: 100vh;
 }
 
 #home-photo {
   border-radius: 50%;
   width: 16rem;
+  display: none;
 }
 
-#home-photo:hover {
-  cursor: pointer;
+#home-title {
+  font-family: Roboto Mono, monospace;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 #home-social > svg {
   width: 2.5rem;
+}
+
+#home-social > svg:nth-child(n+2) {
+  margin-left: 0.5rem;
 }
 
 #home-social > svg:hover {
@@ -30,6 +46,27 @@ body {
 }
 
 #home-social > svg:hover > path {
-  transition: fill 0.225s ease-out;
+  transition: fill 0.19s ease-out;
   fill: var(--primary-color-dark);
+}
+
+#home-nav > ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+#home-nav > ul > li {
+  min-width: 5rem;
+  min-height: 2rem;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+}
+
+#home-nav > ul > li:hover {
+  cursor: pointer;
+  transition: color 0.19s ease-out;
+  color: var(--primary-color-dark);
 }
