@@ -1,0 +1,35 @@
+body {
+  --primary-color: #a5d6a7;
+  --primary-color-light: #d7ffd9;
+  --primary-color-dark: #75a478;
+
+  font-family: Roboto, sans-serif;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-photo {
+  border-radius: 50%;
+  width: 16rem;
+}
+
+#home-photo:hover {
+  cursor: pointer;
+}
+
+#home-social > svg {
+  width: 2.5rem;
+}
+
+#home-social > svg:hover {
+  cursor: pointer;
+}
+
+#home-social > svg:hover > path {
+  transition: fill 0.225s ease-out;
+  fill: var(--primary-color-dark);
+}
