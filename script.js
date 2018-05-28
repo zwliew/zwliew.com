@@ -1,30 +1,61 @@
 window.onload = () => {
-  // Routes
+  // Routing
+  const sections = [
+    document.getElementById('home'),
+    document.getElementById('blog'),
+    document.getElementById('projects'),
+    document.getElementById('about'),
+  ];
+  const routes = {
+    home: {
+      title: 'Home',
+      path: '/',
+      display: 'flex',
+    },
+    blog: {
+      title: 'Blog',
+      path: '/blog',
+      display: 'block',
+    },
+    projects: {
+      title: 'Projects',
+      path: '/projects',
+      display: 'block',
+    },
+    about: {
+      title: 'About',
+      path: '/about',
+      display: 'block',
+    },
+  };
   function navigate(route) {
-    const routes = {
-      blog: {
-        title: 'Zhao Wei - Blog',
-        path: '/blog',
-      },
-      projects: {
-        title: 'Zhao Wei - Projects',
-        path: '/projects',
-      },
-      about: {
-        title: 'Zhao Wei - About',
-        path: '/about',
-      },
-    };
-
     if (!(route in routes)) {
       console.warn(`Route '${route}' does not exist.`);
       return;
     }
 
     const details = routes[route];
-    history.pushState(null, null, details.path);
-    document.title = details.title;
+    history.pushState(route, details.title, details.path);
+    document.title = `Zhao Wei - ${details.title}`;
+    for (let el of sections) {
+      if (el.id !== route) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = routes[route].display;
+      }
+    }
   }
+  window.onpopstate = ({state}) => {
+    for (let el of sections) {
+      if (el.id !== state) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = routes[state].display;
+      }
+    }
+  };
+
+  navigate('home');
 
   // Home
   const homeSocialGithub = document.getElementById('home-social-github');
