@@ -59,17 +59,19 @@ body {
 }
 
 #home-nav > ul > li {
-  min-width: 5rem;
-  min-height: 2rem;
   display: inline-block;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
+  min-width: 4rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
 
 }
 
 #home-nav > ul > li:hover {
   cursor: pointer;
-  transition: color 0.19s ease-out;
-  color: var(--primary-color-dark);
+  transition: background 0.13s ease-out;
+  background: var(--primary-color-dark);
 }
