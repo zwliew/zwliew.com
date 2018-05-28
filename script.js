@@ -73,4 +73,11 @@ window.onload = () => {
   homeNavBlog.addEventListener('click', () => navigate('blog'));
   homeNavProjects.addEventListener('click', () => navigate('projects'));
   homeNavAbout.addEventListener('click', () => navigate('about'));
+
+  // Blog
+  const empty = true;
+  if (empty) {
+    const blogEmpty = document.getElementById('blog-empty');
+    blogEmpty.style.display = 'block';
+  }
 };
