@@ -87,15 +87,6 @@ body {
   align-items: center;
 }
 
-.page-header-back {
-  height: 24px;
-  margin-right: 16px;
-}
-
-.page-header-back:hover {
-  cursor: pointer;
-}
-
 .page-header-title {
   font-family: Roboto Mono, monospace;
 }
@@ -109,17 +100,16 @@ body {
   text-decoration: underline;
 }
 
-#blog-empty {
-  display: none;
+#blog-end {
   text-align: center;
 }
 
-#blog-empty > i {
+#blog-end > i {
   font-size: 240px;
   color: #b0b0b0;
 }
 
-#blog > article {
+.blog-article {
   border: 1px solid #b0b0b0;
   border-radius: 4px;
   max-height: 384px;
@@ -127,11 +117,11 @@ body {
   padding: 16px;
 }
 
-#blog > article:nth-child(n+2) {
+.blog-article:nth-child(n+2) {
   margin-top: 16px;
 }
 
-#blog > article:hover {
+.blog-article:hover {
   cursor: pointer;
   transition: background 0.19s ease-out;
   background: #eee;

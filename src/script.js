@@ -37,25 +37,32 @@ window.onload = () => {
       }
     }
   }
-  function navigate(route) {
+  function navigate(route, replaceState) {
     if (!(route in routes)) {
       console.warn(`Route '${route}' does not exist.`);
       return;
     }
 
     const details = routes[route];
-    history.pushState(route, details.title, details.path);
     document.title = `Zhao Wei - ${details.title}`;
     makeRouteVisible(route);
+    if (replaceState) {
+      history.replaceState(route, details.title, details.path);
+    } else {
+      history.pushState(route, details.title, details.path);
+    }
   }
-  window.onpopstate = ({state}) => makeRouteVisible(state);
-
-  function goToHome() {
-    navigate('home');
-  }
+  window.onpopstate = ({state}) => {
+    if (state === undefined) {
+      console.warn(`State ${state} is invalid.`);
+      return;
+    }
+    document.title = `Zhao Wei - ${routes[state].title}`;
+    makeRouteVisible(state);
+  };
 
   // Start at home
-  goToHome();
+  navigate('home', true);
 
   // Home
   const homeSocialGithub = document.getElementById('home-social-github');
@@ -75,15 +82,12 @@ window.onload = () => {
   homeNavAbout.addEventListener('click', () => navigate('about'));
 
   // Page header
-  const pageHeaderBacks = document.getElementsByClassName('page-header-back');
-  for (let i = 0; i < pageHeaderBacks.length; i++) {
-    pageHeaderBacks.item(i).addEventListener('click', goToHome);
-  }
-
-  // Blog
-  const empty = true;
-  if (empty) {
-    const blogEmpty = document.getElementById('blog-empty');
-    blogEmpty.style.display = 'block';
+  const pageHeaderBlog = document.getElementsByClassName('page-header-blog');
+  const pageHeaderProjects = document.getElementsByClassName('page-header-projects');
+  const pageHeaderAbout = document.getElementsByClassName('page-header-about');
+  for (let i = 0; i < pageHeaderBlog.length; i++) {
+    pageHeaderBlog.item(i).addEventListener('click', navigate.bind(undefined, 'blog', true));
+    pageHeaderProjects.item(i).addEventListener('click', navigate.bind(undefined, 'projects', true));
+    pageHeaderAbout.item(i).addEventListener('click', navigate.bind(undefined, 'about', true));
   }
 };
