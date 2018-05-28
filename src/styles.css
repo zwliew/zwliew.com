@@ -29,17 +29,22 @@ body {
 }
 
 #home-title {
-  font-family: Roboto Mono, monospace;
   font-size: 3rem;
   margin-bottom: 8px;
 }
 
-#home-social > svg {
-  width: 40px;
+#home-social > i {
+  font-size: 40px;
 }
 
-#home-social > svg:nth-child(n+2) {
-  margin-left: 8px;
+#home-social > i:hover {
+  cursor: pointer;
+  transition: color 0.19s ease-out;
+  color: var(--primary-color-dark);
+}
+
+#home-social > svg {
+  width: 40px;
 }
 
 #home-social > svg:hover {
@@ -65,7 +70,6 @@ body {
   border-radius: 4px;
   padding: 8px;
   margin: 4px;
-
 }
 
 #home-nav > ul > li:hover {
@@ -74,12 +78,35 @@ body {
   background: var(--primary-color-dark);
 }
 
-#blog {
+.page {
   padding: 16px;
 }
 
-#blog-title {
+.page-header {
+  display: flex;
+  align-items: center;
+}
+
+.page-header-back {
+  height: 24px;
+  margin-right: 16px;
+}
+
+.page-header-back:hover {
+  cursor: pointer;
+}
+
+.page-header-title {
   font-family: Roboto Mono, monospace;
+}
+
+.page-header > nav {
+  margin-left: 16px;
+}
+
+.page-header > nav > span:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 #blog-empty {
@@ -87,12 +114,12 @@ body {
   text-align: center;
 }
 
-#blog-empty > svg {
-  width: 240px;
+#blog-empty > i {
+  font-size: 240px;
+  color: #b0b0b0;
 }
 
 .blog-article {
-  box-sizing: border-box;
   border: 1px solid #b0b0b0;
   border-radius: 4px;
   max-height: 384px;

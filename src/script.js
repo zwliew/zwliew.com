@@ -28,6 +28,15 @@ window.onload = () => {
       display: 'block',
     },
   };
+  function makeRouteVisible(route) {
+    for (let el of sections) {
+      if (el.id !== route) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = routes[route].display;
+      }
+    }
+  }
   function navigate(route) {
     if (!(route in routes)) {
       console.warn(`Route '${route}' does not exist.`);
@@ -37,23 +46,9 @@ window.onload = () => {
     const details = routes[route];
     history.pushState(route, details.title, details.path);
     document.title = `Zhao Wei - ${details.title}`;
-    for (let el of sections) {
-      if (el.id !== route) {
-        el.style.display = 'none';
-      } else {
-        el.style.display = routes[route].display;
-      }
-    }
+    makeRouteVisible(route);
   }
-  window.onpopstate = ({state}) => {
-    for (let el of sections) {
-      if (el.id !== state) {
-        el.style.display = 'none';
-      } else {
-        el.style.display = routes[state].display;
-      }
-    }
-  };
+  window.onpopstate = ({state}) => makeRouteVisible(state);
 
   navigate('home');
 
@@ -73,6 +68,15 @@ window.onload = () => {
   homeNavBlog.addEventListener('click', () => navigate('blog'));
   homeNavProjects.addEventListener('click', () => navigate('projects'));
   homeNavAbout.addEventListener('click', () => navigate('about'));
+
+  // Page header
+  function goBackInHistory() {
+    history.back();
+  }
+  const pageHeaderBacks = document.getElementsByClassName('page-header-back');
+  for (let i = 0; i < pageHeaderBacks.length; i++) {
+    pageHeaderBacks.item(i).addEventListener('click', goBackInHistory);
+  }
 
   // Blog
   const empty = true;
