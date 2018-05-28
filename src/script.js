@@ -50,7 +50,12 @@ window.onload = () => {
   }
   window.onpopstate = ({state}) => makeRouteVisible(state);
 
-  navigate('home');
+  function goToHome() {
+    navigate('home');
+  }
+
+  // Start at home
+  goToHome();
 
   // Home
   const homeSocialGithub = document.getElementById('home-social-github');
@@ -70,12 +75,9 @@ window.onload = () => {
   homeNavAbout.addEventListener('click', () => navigate('about'));
 
   // Page header
-  function goBackInHistory() {
-    history.back();
-  }
   const pageHeaderBacks = document.getElementsByClassName('page-header-back');
   for (let i = 0; i < pageHeaderBacks.length; i++) {
-    pageHeaderBacks.item(i).addEventListener('click', goBackInHistory);
+    pageHeaderBacks.item(i).addEventListener('click', goToHome);
   }
 
   // Blog
