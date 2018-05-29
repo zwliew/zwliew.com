@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+.title {
+  font-family: Roboto Mono, monospace;
+}
+
 #home, #blog, #projects, #about {
   display: none;
 }
@@ -87,10 +91,6 @@ body {
   align-items: center;
 }
 
-.page-header-title {
-  font-family: Roboto Mono, monospace;
-}
-
 .page-header > nav {
   margin-left: 16px;
 }
@@ -125,4 +125,15 @@ body {
   cursor: pointer;
   transition: background 0.19s ease-out;
   background: #eee;
+}
+
+#about-photo {
+  width: 240px;
+  border-radius: 50%;
+}
+
+#about-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
