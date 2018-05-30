@@ -90,4 +90,11 @@ window.onload = () => {
     pageHeaderProjects.item(i).addEventListener('click', navigate.bind(undefined, 'projects', true));
     pageHeaderAbout.item(i).addEventListener('click', navigate.bind(undefined, 'about', true));
   }
+
+  // Projects
+  const projectItems = document.getElementById('projects').getElementsByClassName('list-item');
+  for (let i = 0; i < projectItems.length; i++) {
+    const projectItem = projectItems.item(i);
+    projectItem.addEventListener('click', window.open.bind(undefined, projectItem.dataset.href));
+  }
 };
