@@ -34,6 +34,14 @@ body {
   text-decoration: underline;
 }
 
+.page-header > i {
+  margin-right: 16px;
+}
+
+.page-header > i:hover {
+  cursor: pointer;
+}
+
 .list-end {
   text-align: center;
 }

@@ -91,6 +91,14 @@ window.onload = () => {
     pageHeaderAbout.item(i).addEventListener('click', navigate.bind(undefined, 'about', true));
   }
 
+  function goBackInHistory() {
+    history.back();
+  }
+  const pageHeaderBack = document.getElementsByClassName('page-header-back');
+  for (let i = 0; i < pageHeaderBack.length; i++) {
+    pageHeaderBack.item(i).addEventListener('click', goBackInHistory);
+  }
+
   // Projects
   const projectItems = document.getElementById('projects').getElementsByClassName('list-item');
   for (let i = 0; i < projectItems.length; i++) {
