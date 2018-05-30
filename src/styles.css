@@ -6,6 +6,7 @@ body {
   --primary-color: #a5d6a7;
   --primary-color-light: #d7ffd9;
   --primary-color-dark: #75a478;
+  --grey-color: #b0b0b0;
 
   font-family: Roboto, sans-serif;
   margin: 0;
@@ -13,6 +14,51 @@ body {
 
 .title {
   font-family: Roboto Mono, monospace;
+}
+
+.page {
+  padding: 16px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+}
+
+.page-header > nav {
+  margin-left: 16px;
+}
+
+.page-header > nav > span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.list-end {
+  text-align: center;
+}
+
+.list-end > i {
+  font-size: 160px;
+  color: var(--grey-color);
+}
+
+.list-item {
+  border: 1px solid var(--grey-color);
+  border-radius: 4px;
+  max-height: 384px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.list-item:nth-child(n+2) {
+  margin-top: 16px;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  transition: background 0.19s ease-out;
+  background: #eee;
 }
 
 #home, #blog, #projects, #about {
@@ -60,12 +106,12 @@ body {
   fill: var(--primary-color-dark);
 }
 
-#home-nav > ul {
+#home > nav > ul {
   padding: 0;
   list-style-type: none;
 }
 
-#home-nav > ul > li {
+#home > nav > ul > li {
   display: inline-block;
   text-align: center;
   font-weight: bold;
@@ -76,64 +122,22 @@ body {
   margin: 4px;
 }
 
-#home-nav > ul > li:hover {
+#home > nav > ul > li:hover {
   cursor: pointer;
   transition: background 0.19s ease-out;
   background: var(--primary-color-dark);
 }
 
-.page {
-  padding: 16px;
-}
-
-.page-header {
+#about > main {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.page-header > nav {
-  margin-left: 16px;
-}
-
-.page-header > nav > span:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-#blog-end {
+#about > main > header {
   text-align: center;
-}
-
-#blog-end > i {
-  font-size: 240px;
-  color: #b0b0b0;
-}
-
-.blog-article {
-  border: 1px solid #b0b0b0;
-  border-radius: 4px;
-  max-height: 384px;
-  overflow: hidden;
-  padding: 16px;
-}
-
-.blog-article:nth-child(n+2) {
-  margin-top: 16px;
-}
-
-.blog-article:hover {
-  cursor: pointer;
-  transition: background 0.19s ease-out;
-  background: #eee;
 }
 
 #about-photo {
   width: 240px;
   border-radius: 50%;
-}
-
-#about-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

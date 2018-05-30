@@ -11,6 +11,7 @@
     <link href="src/styles.css" rel="stylesheet">
   </head>
   <body>
+    <!-- Home -->
     <section id="home">
       <header>
         <h1 id="home-title" class="title">Zhao Wei</h1>
@@ -21,7 +22,7 @@
         </svg>
         <i id="home-social-email" class="material-icons">email</i>
       </section>
-      <nav id="home-nav">
+      <nav>
         <ul>
           <li id="home-nav-blog">blog</li>
           <li id="home-nav-projects">projects</li>
@@ -29,6 +30,8 @@
         </ul>
       </nav>
     </section>
+
+    <!-- Blog -->
     <section id="blog" class="page">
       <header class="page-header">
         <h1 class="title">My blog</h1>
@@ -36,15 +39,17 @@
           | <span class="page-header-projects">projects</span> | <span class="page-header-about">about</span>
         </nav>
       </header>
-      <article class="blog-article">
+      <article class="list-item">
         <h1>Hi and welcome!</h1>
         <p>On this page, I'd like to pen down things interesting things I learn on a day-to-day basis in hopes of being able to look back on it in the future.</p>
       </article>
-      <section id="blog-end">
+      <section class="list-end">
         <i class="material-icons">edit</i>
         <p>There aren't anymore posts. Check back later :)</p>
       </section>
     </section>
+
+    <!-- Projects -->
     <section id="projects" class="page">
       <header class="page-header">
         <h1 class="title">My projects</h1>
@@ -52,7 +57,17 @@
           | <span class="page-header-blog">blog</span> | <span class="page-header-about">about</span>
         </nav>
       </header>
+      <article class="list-item">
+        <h1>LineageOS - the largest third-party Android distribution</h1>
+        <p>I've contributed to the LineageOS project for several years, maintaining official and unofficial ports for several devices such as the Samsung Galaxy S4 and the Xiaomi Redmi 3S. I've also worked on the framework and developed some features.</p>
+      </article>
+      <section class="list-end">
+        <i class="material-icons">book</i>
+        <p>There aren't anymore projects. Check back later :)</p>
+      </section>
     </section>
+
+    <!-- About -->
     <section id="about" class="page">
       <header class="page-header">
         <h1 class="title">About me</h1>
@@ -60,12 +75,12 @@
           | <span class="page-header-blog">blog</span> | <span class="page-header-projects">projects</span>
         </nav>
       </header>
-      <section id="about-main">
+      <main>
         <header>
           <img id="about-photo" src="src/profile.jpeg">
           <h1 class="title">Zhao Wei Liew (zwliew)</h1>
         </header>
-      </section>
+      </main>
     </section>
     <script src="src/script.js"></script>
   </body>
