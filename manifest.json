@@ -1,0 +1,16 @@
+{
+  "name": "Zhao Wei",
+  "short_name": "Zhao Wei",
+  "description": "Liew Zhao Wei's website (portfolio, blog, etc.)",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#a5d6a7",
+  "background_color": "#a5d6a7",
+  "icons": [
+    {
+      "src": "images/manifest/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
