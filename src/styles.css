@@ -13,6 +13,7 @@ body {
 }
 
 .title {
+  font-size: 1rem;
   font-family: Roboto Mono, monospace;
 }
 
@@ -63,6 +64,10 @@ body {
   cursor: pointer;
   transition: background 0.19s ease-out;
   background: #eee;
+}
+
+.list-item > h1 {
+  font-size: 1.5rem;
 }
 
 #home, #blog, #projects, #about {
@@ -144,4 +149,20 @@ body {
 #about-photo {
   width: 240px;
   border-radius: 50%;
+}
+
+@media screen and (min-width: 600px) {
+  .page {
+    padding: 16px 32px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .page {
+    padding: 16px 64px;
+  }
 }
