@@ -2,6 +2,10 @@
 
 My personal website (portfolio, blog, and stuff).
 
+## Available hosts:
+https://zwliew.netlify.com (preferred)
+https://zwliew.github.io (Does not support page navigation via URL)
+
 ## Background
 Currently, it's built using vanilla JS with no prebuilt libraries/frameworks.
 The main reason for this is I'd like to take this as an opportunity to learn
@@ -14,3 +18,4 @@ I too, will learn bit by bit.
 
 ## Changelog
 27 May 2018: Building the initial website using vanilla JS
+03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects
