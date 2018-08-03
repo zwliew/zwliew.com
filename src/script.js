@@ -38,14 +38,12 @@ window.addEventListener('load', () => {
     }
   }
   function navigate(route, replaceState) {
-    let details;
-    if (route in routes) {
-      details = routes[route];
-    } else {
+    if (!(route in routes)) {
       console.warn(`Route '${route}' does not exist; redirecting to home.`);
-      details = routes.home;
+      route = 'home';
     }
 
+    const details = routes[route];
     document.title = `Zhao Wei - ${details.title}`;
     makeRouteVisible(route);
     if (replaceState) {
@@ -63,7 +61,7 @@ window.addEventListener('load', () => {
     makeRouteVisible(state);
   };
 
-  // Start at home or whatever valid URL is entered
+  // Start at whatever valid URL is entered, otherwise at home.
   navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
 
   // Home
