@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
   // Routing
   const sections = [
     document.getElementById('home'),
@@ -105,4 +105,4 @@ window.onload = () => {
     const projectItem = projectItems.item(i);
     projectItem.addEventListener('click', window.open.bind(undefined, projectItem.dataset.href));
   }
-};
+});
