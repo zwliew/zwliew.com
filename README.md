@@ -3,7 +3,7 @@
 My personal website (portfolio, blog, and stuff).
 
 ## Available hosts:
-https://zwliew.netlify.com (preferred)
+https://zwliew.netlify.com (preferred)\
 https://zwliew.github.io (Does not support page navigation via URL)
 
 ## Background
@@ -17,5 +17,5 @@ the code as necessary. As such, not only will the website improve iteratively,
 I too, will learn bit by bit.
 
 ## Changelog
-27 May 2018: Building the initial website using vanilla JS
+27 May 2018: Building the initial website using vanilla JS\
 03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects
