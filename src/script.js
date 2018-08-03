@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
   };
 
   // Start at home
-  navigate('home', true);
+  navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
 
   // Home
   const homeSocialGithub = document.getElementById('home-social-github');
