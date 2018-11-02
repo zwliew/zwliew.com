@@ -72,9 +72,9 @@ window.addEventListener('load', () => {
   navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
 
   // Home
-  const homeSocialGithub = document.getElementById('home-social-github');
-  const homeSocialEmail = document.getElementById('home-social-email');
-  const homeSocialMedium = document.getElementById('home-social-medium');
+  const homeSocialGithub = $('#home-social-github').get();
+  const homeSocialEmail = $('#home-social-email').get();
+  const homeSocialMedium = $('#home-social-medium').get();
   homeSocialGithub.addEventListener('click', () => {
     window.open('https://github.com/zwliew');
   });
@@ -85,9 +85,9 @@ window.addEventListener('load', () => {
     window.open('https://medium.com/@zwliew');
   });
 
-  const homeNavBlog = document.getElementById('home-nav-blog');
-  const homeNavProjects = document.getElementById('home-nav-projects');
-  const homeNavAbout = document.getElementById('home-nav-about');
+  const homeNavBlog = $('#home-nav-blog').get();
+  const homeNavProjects = $('#home-nav-projects').get();
+  const homeNavAbout = $('#home-nav-about').get();
   homeNavBlog.addEventListener('click', () => navigate('blog'));
   homeNavProjects.addEventListener('click', () => navigate('projects'));
   homeNavAbout.addEventListener('click', () => navigate('about'));
@@ -111,7 +111,7 @@ window.addEventListener('load', () => {
   }
 
   // Projects
-  const projectItems = document.getElementById('projects').getElementsByClassName('list-item');
+  const projectItems = $('#projects').get().getElementsByClassName('list-item');
   for (let i = 0; i < projectItems.length; i++) {
     const projectItem = projectItems.item(i);
     projectItem.addEventListener('click', window.open.bind(undefined, projectItem.dataset.href));
