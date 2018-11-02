@@ -1,3 +1,5 @@
+import query from './query.js';
+
 window.addEventListener('load', () => {
   // Routing
   const sections = [
@@ -60,6 +62,8 @@ window.addEventListener('load', () => {
     document.title = `Zhao Wei - ${routes[state].title}`;
     makeRouteVisible(state);
   };
+
+  const $ = query(document);
 
   // Start at whatever valid URL is entered, otherwise at home.
   navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
