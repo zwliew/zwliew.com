@@ -67,11 +67,15 @@ window.addEventListener('load', () => {
   // Home
   const homeSocialGithub = document.getElementById('home-social-github');
   const homeSocialEmail = document.getElementById('home-social-email');
+  const homeSocialMedium = document.getElementById('home-social-medium');
   homeSocialGithub.addEventListener('click', () => {
     window.open('https://github.com/zwliew');
   });
   homeSocialEmail.addEventListener('click', () => {
     window.open('mailto:zhaoweiliew@gmail.com');
+  });
+  homeSocialMedium.addEventListener('click', () => {
+    window.open('https://medium.com/@zwliew');
   });
 
   const homeNavBlog = document.getElementById('home-nav-blog');
