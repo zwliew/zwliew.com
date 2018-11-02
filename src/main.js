@@ -1,5 +1,30 @@
 import query from './query.js';
 
+{ // Global block scope
+
+const routes = {
+  home: {
+    title: 'Home',
+    path: '/',
+    display: 'flex',
+  },
+  blog: {
+    title: 'Blog',
+    path: '/blog',
+    display: 'block',
+  },
+  projects: {
+    title: 'Projects',
+    path: '/projects',
+    display: 'block',
+  },
+  about: {
+    title: 'About',
+    path: '/about',
+    display: 'block',
+  },
+};
+
 window.addEventListener('load', () => {
   // Routing
   const sections = [
@@ -8,28 +33,6 @@ window.addEventListener('load', () => {
     document.getElementById('projects'),
     document.getElementById('about'),
   ];
-  const routes = {
-    home: {
-      title: 'Home',
-      path: '/',
-      display: 'flex',
-    },
-    blog: {
-      title: 'Blog',
-      path: '/blog',
-      display: 'block',
-    },
-    projects: {
-      title: 'Projects',
-      path: '/projects',
-      display: 'block',
-    },
-    about: {
-      title: 'About',
-      path: '/about',
-      display: 'block',
-    },
-  };
   function makeRouteVisible(route) {
     for (let el of sections) {
       if (el.id !== route) {
@@ -114,3 +117,4 @@ window.addEventListener('load', () => {
     projectItem.addEventListener('click', window.open.bind(undefined, projectItem.dataset.href));
   }
 });
+} // Global block scope
