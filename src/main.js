@@ -1,7 +1,8 @@
 import query from './query.js';
 
 { // Global block scope
-
+// Routing
+const sections = []; // Populate when window has loaded
 const routes = {
   home: {
     title: 'Home',
@@ -25,48 +26,47 @@ const routes = {
   },
 };
 
-window.addEventListener('load', () => {
-  // Routing
-  const sections = [
-    document.getElementById('home'),
-    document.getElementById('blog'),
-    document.getElementById('projects'),
-    document.getElementById('about'),
-  ];
-  function makeRouteVisible(route) {
-    for (let el of sections) {
-      if (el.id !== route) {
-        el.style.display = 'none';
-      } else {
-        el.style.display = routes[route].display;
-      }
-    }
-  }
-  function navigate(route, replaceState) {
-    if (!(route in routes)) {
-      console.warn(`Route '${route}' does not exist; redirecting to home.`);
-      route = 'home';
-    }
-
-    const details = routes[route];
-    document.title = `Zhao Wei - ${details.title}`;
-    makeRouteVisible(route);
-    if (replaceState) {
-      history.replaceState(route, details.title, details.path);
+function makeRouteVisible(route) {
+  for (let el of sections) {
+    if (el.id !== route) {
+      el.style.display = 'none';
     } else {
-      history.pushState(route, details.title, details.path);
+      el.style.display = routes[route].display;
     }
   }
-  window.onpopstate = ({state}) => {
-    if (state === undefined) {
-      console.warn(`State ${state} is invalid.`);
-      return;
-    }
-    document.title = `Zhao Wei - ${routes[state].title}`;
-    makeRouteVisible(state);
-  };
+}
 
+function navigate(route, replaceState) {
+  if (!(route in routes)) {
+    console.warn(`Route '${route}' does not exist; redirecting to home.`);
+    route = 'home';
+  }
+
+  const details = routes[route];
+  document.title = `Zhao Wei - ${details.title}`;
+  makeRouteVisible(route);
+  if (replaceState) {
+    history.replaceState(route, details.title, details.path);
+  } else {
+    history.pushState(route, details.title, details.path);
+  }
+}
+
+window.addEventListener('popstate', ({state}) => {
+  if (state === undefined) {
+    console.warn(`State ${state} is invalid.`);
+    return;
+  }
+  document.title = `Zhao Wei - ${routes[state].title}`;
+  makeRouteVisible(state);
+});
+
+window.addEventListener('load', () => {
   const $ = query(document);
+
+  Object.keys(routes)
+    .map(name => $(`#${name}`).get())
+    .forEach(section => sections.push(section));
 
   // Start at whatever valid URL is entered, otherwise at home.
   navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
