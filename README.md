@@ -17,5 +17,6 @@ the code as necessary. As such, not only will the website improve iteratively,
 I too, will learn bit by bit.
 
 ## Changelog
-27 May 2018: Building the initial website using vanilla JS\
-03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects
+03 Nov 2018: Built a jQuery-like library to simplify DOM queries\
+03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects\
+27 May 2018: Built the initial website using vanilla JS
