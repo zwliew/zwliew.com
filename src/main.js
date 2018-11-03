@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
   router.init(q);
 
   // Start at whatever valid URL is entered, otherwise at home.
-  router.navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
+  router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
 
   // Home
   q('#home-social-github').on('click', () => window.open('https://github.com/zwliew'));
