@@ -4,7 +4,7 @@ My personal website (portfolio, blog, and stuff).
 
 ## Available hosts:
 https://zwliew.netlify.com (preferred)\
-https://zwliew.github.io (Does not support page navigation via URL)
+https://zwliew.github.io (does not properly support URL page navigation)
 
 ## Background
 Currently, it's built using vanilla JS with no prebuilt libraries/frameworks.
