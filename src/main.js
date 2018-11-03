@@ -1,6 +1,8 @@
 import query from './query.js';
 
 { // Global block scope
+const $ = query(document);
+
 // Routing
 const sections = []; // Populate when window has loaded
 const routes = {
@@ -62,59 +64,30 @@ window.addEventListener('popstate', ({state}) => {
 });
 
 window.addEventListener('load', () => {
-  const $ = query(document);
-
   Object.keys(routes)
-    .map(name => $(`#${name}`).get())
+    .map(name => $(`#${name}`).get(0))
     .forEach(section => sections.push(section));
 
   // Start at whatever valid URL is entered, otherwise at home.
   navigate(`${window.location.pathname.replace(/^\/|\/$/g, '')}`, true);
 
   // Home
-  const homeSocialGithub = $('#home-social-github').get();
-  const homeSocialEmail = $('#home-social-email').get();
-  const homeSocialMedium = $('#home-social-medium').get();
-  homeSocialGithub.addEventListener('click', () => {
-    window.open('https://github.com/zwliew');
-  });
-  homeSocialEmail.addEventListener('click', () => {
-    window.open('mailto:zhaoweiliew@gmail.com');
-  });
-  homeSocialMedium.addEventListener('click', () => {
-    window.open('https://medium.com/@zwliew');
-  });
-
-  const homeNavBlog = $('#home-nav-blog').get();
-  const homeNavProjects = $('#home-nav-projects').get();
-  const homeNavAbout = $('#home-nav-about').get();
-  homeNavBlog.addEventListener('click', () => navigate('blog'));
-  homeNavProjects.addEventListener('click', () => navigate('projects'));
-  homeNavAbout.addEventListener('click', () => navigate('about'));
+  $('#home-social-github').on('click', () => window.open('https://github.com/zwliew'));
+  $('#home-social-email').on('click', () => window.open('mailto:zhaoweiliew@gmail.com'));
+  $('#home-social-medium').on('click', () => window.open('https://medium.com/@zwliew'));
+  $('#home-nav-blog').on('click', () => navigate('blog'));
+  $('#home-nav-projects').on('click', () => navigate('projects'));
+  $('#home-nav-about').on('click', () => navigate('about'));
 
   // Page header
-  const pageHeaderBlog = document.getElementsByClassName('page-header-blog');
-  const pageHeaderProjects = document.getElementsByClassName('page-header-projects');
-  const pageHeaderAbout = document.getElementsByClassName('page-header-about');
-  for (let i = 0; i < pageHeaderBlog.length; i++) {
-    pageHeaderBlog.item(i).addEventListener('click', navigate.bind(undefined, 'blog', true));
-    pageHeaderProjects.item(i).addEventListener('click', navigate.bind(undefined, 'projects', true));
-    pageHeaderAbout.item(i).addEventListener('click', navigate.bind(undefined, 'about', true));
-  }
-
-  function goBackInHistory() {
-    history.back();
-  }
-  const pageHeaderBack = document.getElementsByClassName('page-header-back');
-  for (let i = 0; i < pageHeaderBack.length; i++) {
-    pageHeaderBack.item(i).addEventListener('click', goBackInHistory);
-  }
+  $('.page-header-blog').on('click', () => navigate('blog', true));
+  $('.page-header-projects').on('click', () => navigate('projects', true));
+  $('.page-header-about').on('click', () => navigate('about', true));
+  $('.page-header-back').on('click', () => history.back());
 
   // Projects
-  const projectItems = $('#projects').get().getElementsByClassName('list-item');
-  for (let i = 0; i < projectItems.length; i++) {
-    const projectItem = projectItems.item(i);
-    projectItem.addEventListener('click', window.open.bind(undefined, projectItem.dataset.href));
-  }
+  $('#projects .list-item').get().forEach(item => (
+    item.addEventListener('click', () => window.open(item.dataset.href))
+  ));
 });
 } // Global block scope
