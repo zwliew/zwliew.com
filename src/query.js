@@ -1,9 +1,9 @@
 class Element {
   constructor(selector, document) {
     this.events = {};
-    if (document === undefined) {
-      // Assume `selector` is actually a DOM element
+    if (selector instanceof HTMLElement) {
       this.elements = [selector];
+      console.log(selector);
     } else {
       this.elements = document.querySelectorAll(selector);
     }
