@@ -1,15 +1,18 @@
 import { deepFreeze } from './utils.js';
 
 const LAYOUTS = deepFreeze({
-  blog: {
-    title: 'h1',
-    summary: 'p',
-  },
-  projects: {
-    name: 'h1',
-    tagline: 'h3',
-    description: 'p',
-  },
+  blog: ({title, summary}) => `
+    <article class="list-item">
+      <h1>${title}</h1>
+      <p>${summary}</p>
+    </article>
+  `,
+  projects: ({name, tagline, description, href}) => `
+    <article class="list-item" data-href="${href}">
+      <h1>${name} - ${tagline}</h1>
+      <p>${description}</p>
+    </article>
+  `,
 });
 const DATA = deepFreeze({
   url: 'https://zwliew.netlify.com/data/',
@@ -47,14 +50,14 @@ function layout(page, data) {
   }
 
   const layout = LAYOUTS[page];
-  // TODO: Generate the HTML string
+  return data.map(datum => layout(datum)).reduce((acc, cur) => acc + cur);
 }
 
-export default async function buildPage({ route, parentEl }) {
+export default async function buildPage({ route, rootEl }) {
   if (route === 'about') return; // TODO: Build the about page
 
-  if (!(parentEl instanceof HTMLElement)) {
-    console.warn(`parentEl ${parentEl} is invalid.`);
+  if (!(rootEl instanceof HTMLElement)) {
+    console.warn(`rootEl ${rootEl} is invalid.`);
     return;
   }
 
@@ -63,5 +66,6 @@ export default async function buildPage({ route, parentEl }) {
     return;
   }
 
-  //parentEl.innerHTML = layout(route, data);
+  const parentEl = rootEl.getElementsByClassName('page-body')[0];
+  parentEl.innerHTML = layout(route, data);
 };

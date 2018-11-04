@@ -74,7 +74,7 @@ export default class Router {
     }
     eventBus.post(EVENTS.navigate, {
       route,
-      parentEl: this.sectionEls.filter(el => el.id === route)[0],
+      rootEl: this.sectionEls.filter(el => el.id === route)[0],
     });
   }
 }
