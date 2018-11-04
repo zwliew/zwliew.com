@@ -7,10 +7,19 @@ import buildPage from './page.js';
 const q = query(document);
 
 function setUpEventListeners({ page }) {
-  if (page === 'projects') {
-    q('#projects .list-item').forEach(item => (
-      item.click(() => window.open(item.dataset('href')))
-    ));
+  switch (page) {
+    case 'projects':
+      q('#projects .list-item').forEach(item => (
+        item.click(() => window.open(item.dataset('href')))
+      ));
+      break;
+    case 'blog':
+      q('#blog .list-item').forEach(item => (
+        item.click(() => window.open(item.dataset('href')))
+      ));
+      break;
+    default:
+      break;
   }
 }
 

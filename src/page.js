@@ -3,10 +3,10 @@ import eventBus, { EVENTS } from './eventBus.js';
 import fetchData from './data.js';
 
 const LAYOUTS = deepFreeze({
-  blog: ({title, summary}) => (`
-    <article class="list-item">
+  blog: ({title, summary, id}) => (`
+    <article class="list-item" data-href="data/blogs/${id}.md">
       <h1>${title}</h1>
-      <p>${summary}</p>
+      <p>${summary}…</p>
     </article>
   `),
   projects: ({name, tagline, description, href}) => (`
@@ -22,7 +22,7 @@ const LAYOUTS = deepFreeze({
  */
 function layout(page, data) {
   if (data === null || data === undefined) {
-    console.warn(`Data ${data} is invalid`);
+    console.warn(`Data ${data} is invalid.`);
     return null;
   }
   if (!LAYOUTS.hasOwnProperty(page)) {

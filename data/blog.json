@@ -1,8 +1,24 @@
 {
   "blog": [
     {
-      "title": "Hi and welcome!",
-      "summary": "On this page, I'd like to pen down things interesting things I learn on a day-to-day basis in hopes of being able to look back on it in the future."
+      "id": 3,
+      "title": "8 Golden Rules of Interface Design",
+      "summary": "Shneiderman devised 8 rules of interface design. Elements of these rules can be found in many modern interfaces used today."
+    },
+    {
+      "id": 2,
+      "title": "Quick Guide to DHCP",
+      "summary": "The dynamic host configuration protocol, abbreviated as DHCP, is a protocol used in networks for servers to _dynamically_ assign IP addresses to clients in the network."
+    },
+    {
+      "id": 1,
+      "title": "Quick Guide to Regex",
+      "summary": "Regular expressions, more commonly known as regex, is a powerful way of describing patterns in strings."
+    },
+    {
+      "id": 0,
+      "title": "Unicast, Multicast, and Broadcast",
+      "summary": "There are 3 types of traffic in a network: unicast, multicast, and broadcast."
     }
   ]
 }
