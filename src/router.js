@@ -58,6 +58,9 @@ export default class Router {
       .forEach(section => this.sectionEls.push(section));
   }
 
+  /**
+   * Navigates to a page
+   */
   navigate(route, replaceState) {
     if (!(route in ROUTES)) {
       console.warn(`Route '${route}' does not exist; redirecting to home.`);

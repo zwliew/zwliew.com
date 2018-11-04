@@ -1,3 +1,6 @@
+/**
+ * Deep freezes an object by recursively freezing its properties
+ */
 export function deepFreeze(obj) {
   if (typeof obj !== 'object') {
     return;

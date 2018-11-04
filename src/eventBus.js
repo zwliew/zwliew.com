@@ -9,6 +9,9 @@ class EventBus {
     this.subscribers = {};
   }
 
+  /**
+   * Register a handler to be called whenever a specific event occurs
+   */
   register(event, handler) {
     if (!(handler instanceof Function)) {
       console.warn(`Handler ${handler} is invalid.`);
@@ -25,6 +28,9 @@ class EventBus {
     }
   }
 
+  /**
+   * Posts an event and notifies its subscribers
+   */
   post(event, data) {
     if (!EVENTS.hasOwnProperty(event)) {
       console.warn(`Event ${event} does not exist.`);

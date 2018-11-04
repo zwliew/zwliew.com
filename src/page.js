@@ -23,6 +23,9 @@ const DATA = deepFreeze({
   },
 });
 
+/**
+ * Fetches the data for a page
+ */
 async function fetchData(type) {
   if (!DATA.types.hasOwnProperty(type)) {
     console.warn(`Type ${type} is invalid.`);
@@ -39,6 +42,9 @@ async function fetchData(type) {
   }
 }
 
+/**
+ * Returns an HTML string of the layout of the page body
+ */
 function layout(page, data) {
   if (data === null || data === undefined) {
     console.warn(`Data ${data} is invalid`);
@@ -53,6 +59,9 @@ function layout(page, data) {
   return data.map(datum => layout(datum)).reduce((acc, cur) => acc + cur);
 }
 
+/**
+ * Fetches and formats the data for the body of a page before displaying it
+ */
 export default async function buildPage({ route, rootEl }) {
   if (route === 'about') return; // TODO: Build the about page
 
