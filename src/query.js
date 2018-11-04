@@ -3,7 +3,6 @@ class Element {
     this.events = {};
     if (selector instanceof HTMLElement) {
       this.elements = [selector];
-      console.log(selector);
     } else {
       this.elements = document.querySelectorAll(selector);
     }

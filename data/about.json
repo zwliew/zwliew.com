@@ -1,0 +1,51 @@
+{
+  "education": [
+    {
+      "name": "Hwa Chong Institution",
+      "location": "Singapore",
+      "duration": "2013 - 2018",
+      "link": "http://hci.edu.sg"
+    }
+  ],
+  "activities": [
+    {
+      "name": "Infocomm & Robotics Society",
+      "duration": "2017 - 2018"
+    },
+    {
+      "name": "Wushu",
+      "duration": "2007 - 2016"
+    }
+  ],
+  "achievements": [
+    {
+      "name": "2018 National Chinese Mobile App Development by Students for Students Competition",
+      "award": "Distinguished Achievement Award",
+      "link": "https://appcompetition.tk.sg"
+    },
+    {
+      "name": "IoT CTF (HomeInvasion) 2018",
+      "award": "4th Place"
+    },
+    {
+      "name": "Cyber Defenders Discovery Camp 2018",
+      "award": "Silver Award (pre-university)",
+      "link": "https://www.dsta.gov.sg/latest-updates/spotlight/developing-future-cyber-defenders"
+    },
+    {
+      "name": "Google Code-in 2017",
+      "award": "Grand Prize",
+      "link": "https://codein.withgoogle.com/archive/2017"
+    },
+    {
+      "name": "Cyber Defenders Discovery Camp 2017",
+      "award": "2nd Place (pre-university)",
+      "link": "https://www.dsta.gov.sg/latest-updates/spotlight/developing-future-cyber-defenders"
+    },
+    {
+      "name": "Sigapore Science and Engineering Fair 2017",
+      "award": "Merit Award",
+      "link": "https://www.science.edu.sg/for-schools/competitions/singapore-science-and-engineering-fair"
+    }
+  ]
+}
