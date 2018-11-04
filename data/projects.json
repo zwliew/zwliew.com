@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "name": "LineageOS",
+      "tagline": "the largest third-party Android distribution",
+      "description": "Being a member of the LineageOS team for a several years, I've maintained ports for several devices, such as the Samsung Galaxy S4 and the Xiaomi Redmi 3S. I've also worked on user-facing features in the framework and apps, such as the LineageParts app and the touchscreen gestures that come with it.",
+      "href": "https://lineageos.org"
+    },
+    {
+      "name": "Xmas and Friends",
+      "tagline": "gamifying Chinese learning for elementary students",
+      "description": "Together with a team of schoolmates, we've designed and built a Unity mobile game revolving around various festivities in Singapore. The game aims to make the learning of Chinese more enjoyable for elementary students. The game was built with Unity, and was done as part of a national competition.",
+      "href": "https://github.com/zwliew/xmas-and-friends"
+    },
+    {
+      "name": "KawaiiFX",
+      "tagline": "cute audio/visual effects",
+      "description": "A simple website containing a couple of cute (anime) effects. It was built mainly to experiment with Web Components in its current stage while having fun.",
+      "href": "https://zwliew.github.io/kawaiiFX"
+    },
+    {
+      "name": "Nature of code",
+      "description": "My personal walkthrough of \"The Nature of Code\" written by Daniel Shiffman. Written with vanilla canvas APIs rather than the p5.js library to familiarize myself with canvas.",
+      "href": "https://zwliew.github.io/nature-of-code"
+    },
+    {
+      "name": "Tic-tac-toe",
+      "description": "A simple tic-tac-toe game on the web.",
+      "href": "https://zwliew.github.io/tic-tac-toe"
+    }
+  ]
+}
