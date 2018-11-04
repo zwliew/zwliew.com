@@ -1,18 +1,18 @@
 import { deepFreeze } from './utils.js';
 
 const LAYOUTS = deepFreeze({
-  blog: ({title, summary}) => `
+  blog: ({title, summary}) => (`
     <article class="list-item">
       <h1>${title}</h1>
       <p>${summary}</p>
     </article>
-  `,
-  projects: ({name, tagline, description, href}) => `
+  `),
+  projects: ({name, tagline, description, href}) => (`
     <article class="list-item" data-href="${href}">
       <h1>${name} - ${tagline}</h1>
       <p>${description}</p>
     </article>
-  `,
+  `),
 });
 const DATA = deepFreeze({
   url: 'https://zwliew.netlify.com/data/',
