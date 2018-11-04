@@ -7,6 +7,7 @@ body {
   --primary-color-light: #d7ffd9;
   --primary-color-dark: #75a478;
   --grey-color: #b0b0b0;
+  --grey-color-light: #eee;
 
   font-family: Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -14,7 +15,7 @@ body {
 
 .title {
   font-size: 1rem;
-  font-family: Roboto Mono, monospace;
+  font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .page {
@@ -51,7 +52,7 @@ body {
 .list-item:hover {
   cursor: pointer;
   transition: background 0.19s ease-out;
-  background: #eee;
+  background: var(--grey-color-light);
 }
 
 .list-item > h1 {
@@ -66,12 +67,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../images/profile.jpeg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
+  background: linear-gradient(45deg, #e1f5fe, #4fc3f7);
+  color: rgba(0,0,0,.87);
   height: 100vh;
 }
 
@@ -122,7 +119,7 @@ body {
 #home > nav > ul > li:hover {
   cursor: pointer;
   transition: background 0.19s ease-out;
-  background: var(--primary-color-dark);
+  background: var(--grey-color-light);
 }
 
 #about > main {
