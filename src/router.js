@@ -62,7 +62,7 @@ export default class Router {
    * Navigates to a page
    */
   navigate(route, replaceState) {
-    if (!(route in ROUTES)) {
+    if (!ROUTES.hasOwnProperty(route)) {
       console.warn(`Route '${route}' does not exist; redirecting to home.`);
       route = 'home';
     }
@@ -76,7 +76,7 @@ export default class Router {
       this.history.pushState(route, details.title, details.path);
     }
     eventBus.post(EVENTS.navigate, {
-      route,
+      page: route,
       rootEl: this.sectionEls.filter(el => el.id === route)[0],
     });
   }

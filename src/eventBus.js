@@ -2,6 +2,7 @@ import { deepFreeze } from './utils.js';
 
 export const EVENTS = deepFreeze({
   navigate: 'navigate',
+  pageBuilt: 'pageBuilt',
 });
 
 class EventBus {

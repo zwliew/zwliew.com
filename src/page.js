@@ -1,4 +1,5 @@
 import { deepFreeze } from './utils.js';
+import eventBus, { EVENTS } from './eventBus.js';
 
 const LAYOUTS = deepFreeze({
   blog: ({title, summary}) => (`
@@ -9,7 +10,7 @@ const LAYOUTS = deepFreeze({
   `),
   projects: ({name, tagline, description, href}) => (`
     <article class="list-item" data-href="${href}">
-      <h1>${name} - ${tagline}</h1>
+      <h1>${name}${tagline === undefined ? '' : ` - ${tagline}`}</h1>
       <p>${description}</p>
     </article>
   `),
@@ -62,22 +63,24 @@ function layout(page, data) {
 /**
  * Fetches and formats the data for the body of a page before displaying it
  */
-export default async function buildPage({ route, rootEl }) {
+export default async function buildPage({ page, rootEl }) {
   if (!(rootEl instanceof HTMLElement)) {
     console.warn(`rootEl ${rootEl} is invalid.`);
     return;
   }
 
-  const data = await fetchData(route);
+  const data = await fetchData(page);
   if (data === null) {
     return;
   }
 
-  const htmlString = layout(route, data);
+  const htmlString = layout(page, data);
   if (htmlString == null) {
     return;
   }
 
   const parentEl = rootEl.getElementsByClassName('page-body')[0];
   parentEl.innerHTML = htmlString;
+
+  eventBus.post(EVENTS.pageBuilt, { page });
 };

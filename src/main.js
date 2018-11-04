@@ -7,8 +7,17 @@ import buildPage from './page.js';
 const q = query(document);
 const router = new Router(document, history, window);
 
+function setUpEventListeners({ page }) {
+  if (page === 'projects') {
+    q('#projects .list-item').forEach(item => (
+      item.click(() => window.open(item.dataset('href')))
+    ));
+  }
+}
+
 window.addEventListener('load', () => {
   eventBus.register(EVENTS.navigate, buildPage);
+  eventBus.register(EVENTS.pageBuilt, setUpEventListeners);
 
   // Start at whatever valid URL is entered, otherwise at home.
   router.init();
@@ -27,10 +36,5 @@ window.addEventListener('load', () => {
   q('.page-header-projects').click(() => router.navigate('projects', true));
   q('.page-header-about').click(() => router.navigate('about', true));
   q('.page-header-back').click(() => history.back());
-
-  // Projects
-  q('#projects .list-item').forEach(item => (
-    item.click(() => window.open(item.dataset('href')))
-  ));
 });
 } // Global block scope
