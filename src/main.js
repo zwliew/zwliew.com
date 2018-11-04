@@ -1,15 +1,17 @@
 import query from './query.js';
 import Router from './router.js';
+import eventBus, { EVENTS } from './eventBus.js';
+import buildPage from './page.js';
 
 { // Global block scope
 const q = query(document);
 const router = new Router(document, history, window);
 
 window.addEventListener('load', () => {
-  // Initialize the router
-  router.init();
+  eventBus.register(EVENTS.navigate, buildPage);
 
   // Start at whatever valid URL is entered, otherwise at home.
+  router.init();
   router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
 
   // Home

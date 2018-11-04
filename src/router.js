@@ -1,6 +1,7 @@
-import { fetchData, TYPES } from './data.js';
+import eventBus, { EVENTS } from './eventBus.js';
+import { deepFreeze } from './utils.js';
 
-const ROUTES = Object.freeze({
+const ROUTES = deepFreeze({
   home: {
     title: 'Home',
     path: '/',
@@ -71,5 +72,9 @@ export default class Router {
     } else {
       this.history.pushState(route, details.title, details.path);
     }
+    eventBus.post(EVENTS.navigate, {
+      route,
+      parentEl: this.sectionEls.filter(el => el.id === route)[0],
+    });
   }
 }
