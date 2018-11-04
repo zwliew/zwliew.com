@@ -1,7 +1,12 @@
 class Element {
-  constructor(document, selector) {
-    this.elements = document.querySelectorAll(selector);
+  constructor(selector, document) {
     this.events = {};
+    if (document === undefined) {
+      // Assume `selector` is actually a DOM element
+      this.elements = [selector];
+    } else {
+      this.elements = document.querySelectorAll(selector);
+    }
   }
 
   get(index) {
@@ -9,6 +14,28 @@ class Element {
       return this.elements;
     }
     return this.elements[index];
+  }
+
+  forEach(callback) {
+    this.elements.forEach((el, index, arr) => callback(new Element(el), index, arr));
+  }
+
+  dataset(key, value) {
+    if (value === undefined) {
+      if (key === undefined) {
+        return this.elements[0].dataset;
+      }
+      return this.elements[0].dataset[key];
+    }
+    this.elements.forEach(el => el.dataset[key] = value);
+  }
+
+  get innerHTML() {
+    return this.elements[0].innerHTML;
+  }
+
+  set innerHTML(htmlString) {
+    this.elements.forEach(el => el.innerHTML = htmlString);
   }
 
   on(event, handler) {
@@ -34,8 +61,7 @@ class Element {
 }
 
 export default function query(document) {
-  const d = document; 
   return function(selector) {
-    return new Element(d, selector);
+    return new Element(selector, document);
   }
 }

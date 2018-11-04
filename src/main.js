@@ -27,8 +27,8 @@ window.addEventListener('load', () => {
   q('.page-header-back').on('click', () => history.back());
 
   // Projects
-  q('#projects .list-item').get().forEach(item => (
-    item.addEventListener('click', () => window.open(item.dataset.href))
+  q('#projects .list-item').forEach(item => (
+    item.on('click', () => window.open(item.dataset('href')))
   ));
 });
 } // Global block scope
