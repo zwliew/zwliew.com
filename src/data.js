@@ -1,5 +1,7 @@
+import { deepFreeze } from './utils.js';
+
 const DATA = deepFreeze({
-  url: 'https://zwliew.netlify.com/data/',
+  url: 'data/',
   types: {
     about: 'about.json',
     projects: 'projects.json',
