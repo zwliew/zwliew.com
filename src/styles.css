@@ -39,15 +39,6 @@ body {
   cursor: pointer;
 }
 
-.list-end {
-  text-align: center;
-}
-
-.list-end > i {
-  font-size: 160px;
-  color: var(--grey-color);
-}
-
 .list-item {
   border: 1px solid var(--grey-color);
   border-radius: 4px;
