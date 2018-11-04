@@ -63,8 +63,6 @@ function layout(page, data) {
  * Fetches and formats the data for the body of a page before displaying it
  */
 export default async function buildPage({ route, rootEl }) {
-  if (route === 'about') return; // TODO: Build the about page
-
   if (!(rootEl instanceof HTMLElement)) {
     console.warn(`rootEl ${rootEl} is invalid.`);
     return;
@@ -75,6 +73,11 @@ export default async function buildPage({ route, rootEl }) {
     return;
   }
 
+  const htmlString = layout(route, data);
+  if (htmlString == null) {
+    return;
+  }
+
   const parentEl = rootEl.getElementsByClassName('page-body')[0];
-  parentEl.innerHTML = layout(route, data);
+  parentEl.innerHTML = htmlString;
 };
