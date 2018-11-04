@@ -13,22 +13,22 @@ window.addEventListener('load', () => {
   router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
 
   // Home
-  q('#home-social-github').on('click', () => window.open('https://github.com/zwliew'));
-  q('#home-social-email').on('click', () => window.open('mailto:zhaoweiliew@gmail.com'));
-  q('#home-social-medium').on('click', () => window.open('https://medium.com/@zwliew'));
-  q('#home-nav-blog').on('click', () => router.navigate('blog'));
-  q('#home-nav-projects').on('click', () => router.navigate('projects'));
-  q('#home-nav-about').on('click', () => router.navigate('about'));
+  q('#home-social-github').click(() => window.open('https://github.com/zwliew'));
+  q('#home-social-email').click(() => window.open('mailto:zhaoweiliew@gmail.com'));
+  q('#home-social-medium').click(() => window.open('https://medium.com/@zwliew'));
+  q('#home-nav-blog').click(() => router.navigate('blog'));
+  q('#home-nav-projects').click(() => router.navigate('projects'));
+  q('#home-nav-about').click(() => router.navigate('about'));
 
   // Page header
-  q('.page-header-blog').on('click', () => router.navigate('blog', true));
-  q('.page-header-projects').on('click', () => router.navigate('projects', true));
-  q('.page-header-about').on('click', () => router.navigate('about', true));
-  q('.page-header-back').on('click', () => history.back());
+  q('.page-header-blog').click(() => router.navigate('blog', true));
+  q('.page-header-projects').click(() => router.navigate('projects', true));
+  q('.page-header-about').click(() => router.navigate('about', true));
+  q('.page-header-back').click(() => history.back());
 
   // Projects
   q('#projects .list-item').forEach(item => (
-    item.on('click', () => window.open(item.dataset('href')))
+    item.click(() => window.open(item.dataset('href')))
   ));
 });
 } // Global block scope
