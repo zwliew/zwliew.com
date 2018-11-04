@@ -43,25 +43,35 @@ function handlePopState({state}) {
   makeRouteVisible(state, this.sectionEls);
 }
 
-export default class Router {
-  constructor(document, history, window) {
+class Router {
+  constructor() {
     this.sectionEls = [];
+    this.document = null;
+    this.history = null;
+    this.initialized = false;
+  }
+
+  init(document, history, window) {
     this.document = document;
     this.history = history;
 
     window.addEventListener('popstate', handlePopState.bind(this));
-  }
 
-  init() {
     Object.keys(ROUTES)
       .map(name => this.document.getElementById(name))
       .forEach(section => this.sectionEls.push(section));
+
+    this.initialized = true;
   }
 
   /**
    * Navigates to a page
    */
   navigate(route, replaceState) {
+    if (!this.initialized) {
+      return;
+    }
+
     if (!ROUTES.hasOwnProperty(route)) {
       console.warn(`Route '${route}' does not exist; redirecting to home.`);
       route = 'home';
@@ -81,3 +91,6 @@ export default class Router {
     });
   }
 }
+
+const router = new Router();
+export default router;

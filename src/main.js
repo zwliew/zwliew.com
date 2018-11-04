@@ -1,11 +1,10 @@
 import query from './query.js';
-import Router from './router.js';
+import router from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
 import buildPage from './page.js';
 
 { // Global block scope
 const q = query(document);
-const router = new Router(document, history, window);
 
 function setUpEventListeners({ page }) {
   if (page === 'projects') {
@@ -20,7 +19,7 @@ window.addEventListener('load', () => {
   eventBus.register(EVENTS.pageBuilt, setUpEventListeners);
 
   // Start at whatever valid URL is entered, otherwise at home.
-  router.init();
+  router.init(document, history, window);
   router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
 
   // Home
