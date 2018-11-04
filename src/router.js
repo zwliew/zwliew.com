@@ -1,5 +1,6 @@
-const sections = [];
-const routes = {
+import { fetchData, TYPES } from './data.js';
+
+const ROUTES = Object.freeze({
   home: {
     title: 'Home',
     path: '/',
@@ -20,49 +21,51 @@ const routes = {
     path: '/about',
     display: 'block',
   },
-};
+});
 
-function makeRouteVisible(route) {
-  for (let el of sections) {
+function makeRouteVisible(route, sectionEls) {
+  sectionEls.forEach((el) => {
     if (el.id !== route) {
       el.style.display = 'none';
     } else {
-      el.style.display = routes[route].display;
+      el.style.display = ROUTES[route].display;
     }
+  });
+}
+
+function handlePopState({state}) {
+  if (state === undefined) {
+    console.warn(`State ${state} is invalid.`);
+    return;
   }
+  this.document.title = `Zhao Wei - ${ROUTES[state].title}`;
+  makeRouteVisible(state, this.sectionEls);
 }
 
 export default class Router {
-  constructor(window, document, history) {
-    this.window = window;
+  constructor(document, history, window) {
+    this.sectionEls = [];
     this.document = document;
     this.history = history;
+
+    window.addEventListener('popstate', handlePopState.bind(this));
   }
 
-  init($) {
-    this.window.addEventListener('popstate', ({state}) => {
-      if (state === undefined) {
-        console.warn(`State ${state} is invalid.`);
-        return;
-      }
-      this.document.title = `Zhao Wei - ${routes[state].title}`;
-      makeRouteVisible(state);
-    });
-
-    Object.keys(routes)
-      .map(name => $(`#${name}`).get(0))
-      .forEach(section => sections.push(section));
+  init() {
+    Object.keys(ROUTES)
+      .map(name => this.document.getElementById(name))
+      .forEach(section => this.sectionEls.push(section));
   }
 
   navigate(route, replaceState) {
-    if (!(route in routes)) {
+    if (!(route in ROUTES)) {
       console.warn(`Route '${route}' does not exist; redirecting to home.`);
       route = 'home';
     }
 
-    const details = routes[route];
+    const details = ROUTES[route];
     this.document.title = `Zhao Wei - ${details.title}`;
-    makeRouteVisible(route);
+    makeRouteVisible(route, this.sectionEls);
     if (replaceState) {
       this.history.replaceState(route, details.title, details.path);
     } else {

@@ -3,11 +3,11 @@ import Router from './router.js';
 
 { // Global block scope
 const q = query(document);
-const router = new Router(window, document, history);
+const router = new Router(document, history, window);
 
 window.addEventListener('load', () => {
   // Initialize the router
-  router.init(q);
+  router.init();
 
   // Start at whatever valid URL is entered, otherwise at home.
   router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
