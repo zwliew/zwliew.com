@@ -16,6 +16,11 @@ When I decide to move on to a better method of doing something, I'll refactor
 the code as necessary. As such, not only will the website improve iteratively,
 I too, will learn bit by bit.
 
+## Platform compability
+The website currently uses modern features like ES6 modules, which may not be
+implemented by various platforms as of yet. It is mainly tested on the latest
+version of Chrome. Backward compatibility will be introduced in the future.
+
 ## Changelog
 03 Nov 2018: Built a jQuery-like library to simplify DOM queries\
 03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects\
