@@ -4,8 +4,8 @@
   "description": "Liew Zhao Wei's website (portfolio, blog, etc.)",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#a5d6a7",
-  "background_color": "#a5d6a7",
+  "theme_color": "#4fc3f7",
+  "background_color": "#4fc3f7",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",
