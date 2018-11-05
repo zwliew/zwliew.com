@@ -3,9 +3,9 @@
 }
 
 body {
-  --primary-color: #a5d6a7;
-  --primary-color-light: #d7ffd9;
-  --primary-color-dark: #75a478;
+  --primary-color: #4fc3f7;
+  --primary-color-dark: #0093c4;
+  --secondary-color: #e1f5fe;
   --grey-color: #b0b0b0;
   --grey-color-light: #eee;
 
@@ -67,7 +67,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #e1f5fe, #4fc3f7);
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
   color: rgba(0,0,0,.87);
   height: 100vh;
 }
