@@ -2,6 +2,7 @@ import query from './query.js';
 import router, { ROUTES } from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
 import buildPage from './page.js';
+import switchTheme, { THEMES } from './theme.js';
 
 { // Global block scope
 const q = query(document);
@@ -36,5 +37,8 @@ window.addEventListener('load', () => {
   // Page header
   q('.page-header-nav').click(ev => router.navigate(ev.target.dataset.href, true));
   q('.page-header-back').click(() => history.back());
+
+  const hours = (new Date()).getHours();
+  switchTheme(hours >= 7 && hours < 19 ? THEMES.day : THEMES.night, document.body);
 });
 } // Global block scope

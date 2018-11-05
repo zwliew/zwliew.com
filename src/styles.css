@@ -3,11 +3,9 @@
 }
 
 body {
-  --primary-color: #4fc3f7;
-  --primary-color-dark: #0093c4;
-  --secondary-color: #e1f5fe;
   --grey-color: #b0b0b0;
   --grey-color-light: #eee;
+  --grey-color-dark: #a4a4a4;
 
   font-family: Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -59,8 +57,9 @@ body {
 
 .list-item:hover {
   cursor: pointer;
-  transition: background 0.19s ease-out;
+  transition: background 0.19s ease-out, box-shadow 0.19s ease-out;
   background: var(--grey-color-light);
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
 }
 
 .list-item > h1 {
@@ -75,8 +74,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-  color: rgba(0,0,0,.87);
+  background: linear-gradient(45deg, var(--primary-color-light), var(--primary-color));
+  color: var(--text-color);
   height: 100vh;
 }
 
@@ -95,7 +94,7 @@ body {
 
 #home-social > svg:hover > path {
   transition: fill 0.19s ease-out;
-  fill: var(--primary-color-dark);
+  fill: var(--primary-color-hover);
 }
 
 #home > nav > ul {
@@ -117,7 +116,7 @@ body {
 #home > nav > ul > li:hover {
   cursor: pointer;
   transition: background 0.19s ease-out;
-  background: var(--grey-color-light);
+  background: var(--grey-color-hover);
 }
 
 #about > main {
