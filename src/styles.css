@@ -44,6 +44,10 @@ body {
   cursor: pointer;
 }
 
+.page-body {
+  animation: fadein 0.2s ease-in;
+}
+
 .list-item {
   border: 1px solid var(--grey-color);
   border-radius: 4px;
@@ -130,6 +134,13 @@ body {
   border-radius: 50%;
 }
 
+/* Animations */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive design */
 @media screen and (min-width: 600px) {
   .page {
     padding: 16px 32px;
