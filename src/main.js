@@ -32,9 +32,7 @@ window.addEventListener('load', () => {
   router.navigate(window.location.pathname.replace(/^\/|\/$/g, ''), true);
 
   // Home
-  q('#home-social-github').click(() => window.open('https://github.com/zwliew'));
-  q('#home-social-email').click(() => window.open('mailto:zhaoweiliew@gmail.com'));
-  q('#home-social-medium').click(() => window.open('https://medium.com/@zwliew'));
+  q('.home-social').click(ev => window.open(ev.target.dataset.href));
   q('#home-nav-blog').click(() => router.navigate(ROUTES.blog));
   q('#home-nav-projects').click(() => router.navigate(ROUTES.projects));
   q('#home-nav-about').click(() => router.navigate(ROUTES.about));

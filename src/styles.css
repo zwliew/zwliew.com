@@ -36,7 +36,11 @@ body {
   text-decoration: underline;
 }
 
-.page-header > i:hover {
+.page-header-back {
+  font-size: 1.5rem;
+}
+
+.page-header-back:hover {
   cursor: pointer;
 }
 
@@ -77,18 +81,8 @@ body {
   margin-bottom: 8px;
 }
 
-#home-social > i {
-  font-size: 40px;
-}
-
-#home-social > i:hover {
-  cursor: pointer;
-  transition: color 0.19s ease-out;
-  color: var(--primary-color-dark);
-}
-
 #home-social > svg {
-  width: 40px;
+  font-size: 2.5rem;
 }
 
 #home-social > svg:hover {
