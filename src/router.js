@@ -1,23 +1,29 @@
 import eventBus, { EVENTS } from './eventBus.js';
 import { deepFreeze } from './utils.js';
 
-const ROUTES = deepFreeze({
-  home: {
+export const ROUTES = deepFreeze({
+  home: 'home',
+  blog: 'blog',
+  projects: 'projects',
+  about: 'about',
+});
+const ROUTE_INFO = deepFreeze({
+  [ROUTES.home]: {
     title: 'Home',
     path: '/',
     display: 'flex',
   },
-  blog: {
+  [ROUTES.blog]: {
     title: 'Blog',
     path: '/blog',
     display: 'block',
   },
-  projects: {
+  [ROUTES.projects]: {
     title: 'Projects',
     path: '/projects',
     display: 'block',
   },
-  about: {
+  [ROUTES.about]: {
     title: 'About',
     path: '/about',
     display: 'block',
@@ -29,7 +35,7 @@ function makeRouteVisible(route, sectionEls) {
     if (el.id !== route) {
       el.style.display = 'none';
     } else {
-      el.style.display = ROUTES[route].display;
+      el.style.display = ROUTE_INFO[route].display;
     }
   });
 }
@@ -39,7 +45,7 @@ function handlePopState({state}) {
     console.warn(`State ${state} is invalid.`);
     return;
   }
-  this.document.title = `Zhao Wei - ${ROUTES[state].title}`;
+  this.document.title = `Zhao Wei - ${ROUTE_INFO[state].title}`;
   makeRouteVisible(state, this.sectionEls);
 }
 
@@ -77,7 +83,7 @@ class Router {
       route = 'home';
     }
 
-    const details = ROUTES[route];
+    const details = ROUTE_INFO[route];
     this.document.title = `Zhao Wei - ${details.title}`;
     makeRouteVisible(route, this.sectionEls);
     if (replaceState) {

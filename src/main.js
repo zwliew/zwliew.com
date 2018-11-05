@@ -1,5 +1,5 @@
 import query from './query.js';
-import router from './router.js';
+import router, { ROUTES } from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
 import buildPage from './page.js';
 
@@ -35,14 +35,12 @@ window.addEventListener('load', () => {
   q('#home-social-github').click(() => window.open('https://github.com/zwliew'));
   q('#home-social-email').click(() => window.open('mailto:zhaoweiliew@gmail.com'));
   q('#home-social-medium').click(() => window.open('https://medium.com/@zwliew'));
-  q('#home-nav-blog').click(() => router.navigate('blog'));
-  q('#home-nav-projects').click(() => router.navigate('projects'));
-  q('#home-nav-about').click(() => router.navigate('about'));
+  q('#home-nav-blog').click(() => router.navigate(ROUTES.blog));
+  q('#home-nav-projects').click(() => router.navigate(ROUTES.projects));
+  q('#home-nav-about').click(() => router.navigate(ROUTES.about));
 
   // Page header
-  q('.page-header-blog').click(() => router.navigate('blog', true));
-  q('.page-header-projects').click(() => router.navigate('projects', true));
-  q('.page-header-about').click(() => router.navigate('about', true));
+  q('.page-header-nav').click(ev => router.navigate(ev.target.dataset.href, true));
   q('.page-header-back').click(() => history.back());
 });
 } // Global block scope
