@@ -43,7 +43,7 @@ body {
 }
 
 .page-body {
-  animation: fadein 0.2s ease-in;
+  animation: fadein 0.19s ease-out;
 }
 
 .list-item {
