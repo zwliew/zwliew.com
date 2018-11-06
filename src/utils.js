@@ -13,3 +13,10 @@ export function deepFreeze(obj) {
   Object.freeze(obj);
   return obj;
 }
+
+/**
+ * Returns true if the object `obj` is a string
+ */
+export function isString(obj) {
+  return typeof obj === 'string' || obj instanceof String;
+}
