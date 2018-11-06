@@ -45,39 +45,21 @@ function handlePopState({state}) {
     console.warn(`State ${state} is invalid.`);
     return;
   }
-  this.document.title = `Zhao Wei - ${ROUTE_INFO[state].title}`;
+  document.title = `Zhao Wei - ${ROUTE_INFO[state].title}`;
   makeRouteVisible(state, this.sectionEls);
 }
 
 class Router {
   constructor() {
-    this.sectionEls = [];
-    this.document = null;
-    this.history = null;
-    this.initialized = false;
-  }
-
-  init(document, history, window) {
-    this.document = document;
-    this.history = history;
-
     window.addEventListener('popstate', handlePopState.bind(this));
-
-    Object.keys(ROUTES)
-      .map(name => this.document.getElementById(name))
-      .forEach(section => this.sectionEls.push(section));
-
-    this.initialized = true;
+    this.sectionEls = Object.keys(ROUTES)
+      .map(name => document.getElementById(name));
   }
 
   /**
    * Navigates to a page
    */
   navigate(route, replaceState) {
-    if (!this.initialized) {
-      return;
-    }
-
     if (!ROUTES.hasOwnProperty(route)) {
       if (route.trim() !== '') {
         console.warn(`Route '${route}' does not exist; redirecting to home.`);
@@ -86,12 +68,12 @@ class Router {
     }
 
     const details = ROUTE_INFO[route];
-    this.document.title = `Zhao Wei - ${details.title}`;
+    document.title = `Zhao Wei - ${details.title}`;
     makeRouteVisible(route, this.sectionEls);
     if (replaceState) {
-      this.history.replaceState(route, details.title, details.path);
+      history.replaceState(route, details.title, details.path);
     } else {
-      this.history.pushState(route, details.title, details.path);
+      history.pushState(route, details.title, details.path);
     }
     eventBus.post(EVENTS.navigate, {
       page: route,

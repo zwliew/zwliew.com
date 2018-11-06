@@ -1,5 +1,5 @@
 class Element {
-  constructor(selector, document) {
+  constructor(selector) {
     this.events = {};
     if (selector instanceof HTMLElement) {
       this.elements = [selector];
@@ -88,8 +88,6 @@ class Element {
   }
 }
 
-export default function query(document) {
-  return function(selector) {
-    return new Element(selector, document);
-  }
+export default function query(selector) {
+  return new Element(selector);
 }
