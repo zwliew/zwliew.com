@@ -1,10 +1,21 @@
+import { isString } from './utils.js';
+
 class Element {
-  constructor(selector) {
+  constructor(arg) {
     this.events = {};
-    if (selector instanceof HTMLElement) {
-      this.elements = [selector];
-    } else {
-      this.elements = document.querySelectorAll(selector);
+    this.elements = [];
+
+    // 3 supported possibilities:
+    // 1. A string containing a selector expression
+    // 2. A DOM element
+    // 3. An array of DOM elements
+    if (isString(arg)) {
+      // Possibility 1
+      this.elements = document.querySelectorAll(arg);
+    } else if (arg instanceof HTMLElement) {
+      this.elements = [arg];
+    } else if (Array.isArray(arg) && arg.every(el => el instanceof HTMLElement)) {
+      this.elements = [...arg];
     }
   }
 
@@ -86,8 +97,12 @@ class Element {
   click(handler) {
     this.on('click', handler);
   }
+
+  parent() {
+    return q(this.elements.map(el => el.parentElement).filter(el => el === null));
+  }
 }
 
-export default function query(selector) {
-  return new Element(selector);
+export default function q(arg) {
+  return new Element(arg);
 }
