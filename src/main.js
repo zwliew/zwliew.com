@@ -31,3 +31,12 @@ q('#home-nav-about').click(() => navigate(ROUTES.about));
 
 // Page header
 q('.page-header-nav').click(ev => navigate(ev.target.dataset.href));
+
+q('.expandable-content-header').click((ev) =>  {
+  const style = ev.target.parentElement.style;
+  if (style.maxHeight === 'none') {
+    style.maxHeight = '80px';
+  } else {
+    style.maxHeight = 'none';
+  }
+});

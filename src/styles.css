@@ -126,8 +126,38 @@ body {
 }
 
 #about-photo {
-  width: 240px;
   border-radius: 50%;
+  width: 240px;
+}
+
+/* Expandable content */
+.expandable-content {
+  border: 1px solid var(--grey-color);
+  border-radius: 8px;
+  max-height: 80px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.expandable-content-header {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  padding: 8px 16px;
+}
+
+.expandable-content-header:hover {
+  cursor: pointer;
+  transition: background 0.19s ease-out;
+  background: var(--grey-color-light);
+}
+
+.expandable-content-header-icon {
+  font-size: 2rem;
+}
+
+.expandable-content-body {
+  padding: 0 16px;
 }
 
 /* Animations */
