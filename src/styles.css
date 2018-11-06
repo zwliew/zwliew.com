@@ -1,3 +1,4 @@
+/* General */
 * {
   box-sizing: border-box;
 }
@@ -11,6 +12,7 @@ body {
   margin: 0;
 }
 
+/* Page */
 .title {
   font-size: 1rem;
   font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
@@ -38,6 +40,7 @@ body {
   animation: fadein 0.19s ease-out;
 }
 
+/* List item */
 .list-item {
   border: 1px solid var(--grey-color);
   border-radius: 8px;
@@ -62,6 +65,7 @@ body {
   display: none;
 }
 
+/* Home route */
 #home {
   flex-direction: column;
   align-items: center;
@@ -111,6 +115,7 @@ body {
   background: var(--grey-color-hover);
 }
 
+/* About route */
 #about > main {
   display: flex;
   flex-direction: column;
