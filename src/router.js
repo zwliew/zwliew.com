@@ -51,6 +51,7 @@ function handlePopState({state}) {
 
 class Router {
   constructor() {
+    eventBus.register(EVENTS.navigate, ({ route }) => this.navigate(route));
     window.addEventListener('popstate', handlePopState.bind(this));
     this.sectionEls = Object.keys(ROUTES)
       .map(name => document.getElementById(name));
@@ -59,24 +60,18 @@ class Router {
   /**
    * Navigates to a page
    */
-  navigate(route, replaceState) {
+  navigate(route) {
     if (!ROUTES.hasOwnProperty(route)) {
-      if (route.trim() !== '') {
-        console.warn(`Route '${route}' does not exist; redirecting to home.`);
-      }
+      console.warn(`Route '${route}' does not exist; redirecting to home.`);
       route = ROUTES.home;
     }
 
     const details = ROUTE_INFO[route];
     document.title = `Zhao Wei - ${details.title}`;
     makeRouteVisible(route, this.sectionEls);
-    if (replaceState) {
-      history.replaceState(route, details.title, details.path);
-    } else {
-      history.pushState(route, details.title, details.path);
-    }
-    eventBus.post(EVENTS.navigate, {
-      page: route,
+    history.pushState(route, details.title, details.path);
+    eventBus.post(EVENTS.navigateLate, {
+      route,
       rootEl: this.sectionEls.filter(el => el.id === route)[0],
     });
   }

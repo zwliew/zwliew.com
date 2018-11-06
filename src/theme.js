@@ -1,7 +1,6 @@
-import eventBus, { EVENTS } from './eventBus.js';
 import { deepFreeze } from './utils.js';
 
-export const THEMES = deepFreeze({
+const THEMES = deepFreeze({
   day: 'day',
   night: 'night',
 });
@@ -30,7 +29,7 @@ const THEME_COLORS = deepFreeze({
 /**
  * Switches the theme colors for an element
  */
-export default function switchTheme(theme, element) {
+function switchTheme(theme, element) {
   if (!THEMES.hasOwnProperty(theme)) {
     console.warn(`Theme ${theme} does not exist.`);
     return;
@@ -40,3 +39,6 @@ export default function switchTheme(theme, element) {
     .map(([key, value]) => ['--'.concat(key.split(/(?=[A-Z])/).join('-').toLowerCase()), value])
     .forEach(([key, value]) => element.style.setProperty(key, value));
 }
+
+const hours = (new Date()).getHours();
+switchTheme(hours >= 7 && hours < 19 ? THEMES.day : THEMES.night, document.body);

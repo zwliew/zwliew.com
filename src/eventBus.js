@@ -2,7 +2,8 @@ import { deepFreeze } from './utils.js';
 
 export const EVENTS = deepFreeze({
   navigate: 'navigate',
-  pageBuilt: 'pageBuilt',
+  navigateLate: 'navigateLate',
+  routeDisplayed: 'routeDisplayed',
 });
 
 class EventBus {
@@ -35,6 +36,9 @@ class EventBus {
   post(event, data) {
     if (!EVENTS.hasOwnProperty(event)) {
       console.warn(`Event ${event} does not exist.`);
+      return;
+    }
+    if (this.subscribers[event] === undefined) {
       return;
     }
     this.subscribers[event].forEach(handler => handler(data));

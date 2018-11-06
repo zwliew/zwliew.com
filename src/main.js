@@ -1,8 +1,10 @@
 import q from './query.js';
-import router, { ROUTES } from './router.js';
+import { ROUTES } from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
-import buildPage from './page.js';
-import switchTheme, { THEMES } from './theme.js';
+
+function navigate(route) {
+  eventBus.post(EVENTS.navigate, { route });
+}
 
 function setUpEventListeners({ page }) {
   switch (page) {
@@ -17,23 +19,15 @@ function setUpEventListeners({ page }) {
   }
 }
 
-window.addEventListener('load', () => {
-  eventBus.register(EVENTS.navigate, buildPage);
-  eventBus.register(EVENTS.pageBuilt, setUpEventListeners);
+eventBus.register(EVENTS.routeDisplayed, setUpEventListeners);
 
-  // Start at whatever valid URL is entered, otherwise at home.
-  router.navigate(location.pathname.replace(/^\/|\/$/g, ''), true);
+navigate(location.pathname.replace(/^\/|\/$/g, '') || ROUTES.home);
 
-  // Home
-  q('.home-social').click(ev => open(ev.target.dataset.href));
-  q('#home-nav-blog').click(() => router.navigate(ROUTES.blog));
-  q('#home-nav-projects').click(() => router.navigate(ROUTES.projects));
-  q('#home-nav-about').click(() => router.navigate(ROUTES.about));
+// Home
+q('.home-social').click(ev => open(ev.target.dataset.href));
+q('#home-nav-blog').click(() => navigate(ROUTES.blog));
+q('#home-nav-projects').click(() => navigate(ROUTES.projects));
+q('#home-nav-about').click(() => navigate(ROUTES.about));
 
-  // Page header
-  q('.page-header-nav').click(ev => router.navigate(ev.target.dataset.href, true));
-  q('.page-header-back').click(() => history.back());
-
-  const hours = (new Date()).getHours();
-  switchTheme(hours >= 7 && hours < 19 ? THEMES.day : THEMES.night, document.body);
-});
+// Page header
+q('.page-header-nav').click(ev => navigate(ev.target.dataset.href));

@@ -34,14 +34,6 @@ body {
   text-decoration: underline;
 }
 
-.page-header-back {
-  font-size: 1.5rem;
-}
-
-.page-header-back:hover {
-  cursor: pointer;
-}
-
 .page-body {
   animation: fadein 0.19s ease-out;
 }

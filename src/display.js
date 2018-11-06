@@ -35,20 +35,20 @@ function layout(page, data) {
 }
 
 /**
- * Fetches and formats the data for the body of a page before displaying it
+ * Fetches and formats the data for the body of a route before displaying it
  */
-export default async function buildPage({ page, rootEl }) {
+async function displayRoute({ route, rootEl }) {
   if (!(rootEl instanceof HTMLElement)) {
     console.warn(`rootEl ${rootEl} is invalid.`);
     return;
   }
 
-  const data = await fetchData(page);
+  const data = await fetchData(route);
   if (data === null) {
     return;
   }
 
-  const htmlString = layout(page, data);
+  const htmlString = layout(route, data);
   if (htmlString == null) {
     return;
   }
@@ -56,5 +56,7 @@ export default async function buildPage({ page, rootEl }) {
   const parentEl = rootEl.getElementsByClassName('page-body')[0];
   parentEl.innerHTML = htmlString;
 
-  eventBus.post(EVENTS.pageBuilt, { page });
+  eventBus.post(EVENTS.routeDisplayed, { route });
 };
+
+eventBus.register(EVENTS.navigateLate, (data) => displayRoute(data));
