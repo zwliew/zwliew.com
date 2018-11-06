@@ -4,7 +4,6 @@ import eventBus, { EVENTS } from './eventBus.js';
 import buildPage from './page.js';
 import switchTheme, { THEMES } from './theme.js';
 
-{ // Global block scope
 function setUpEventListeners({ page }) {
   switch (page) {
     case ROUTES.projects:
@@ -38,4 +37,3 @@ window.addEventListener('load', () => {
   const hours = (new Date()).getHours();
   switchTheme(hours >= 7 && hours < 19 ? THEMES.day : THEMES.night, document.body);
 });
-} // Global block scope
