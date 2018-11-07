@@ -12,13 +12,13 @@ const DATA = deepFreeze({
 const LAYOUTS = deepFreeze({
   blog: ({ title, summary, id }) => (`
     <article class="list-item" data-href="data/blogs/${id}.md">
-      <h1>${title}</h1>
+      <h1 class="title">${title}</h1>
       <p>${summary}…</p>
     </article>
   `),
   projects: ({ name, tagline, description, href }) => (`
     <article class="list-item" data-href="${href}">
-      <h1>${name}${tagline === undefined ? '' : ` - ${tagline}`}</h1>
+      <h1 class="title">${name}${tagline === undefined ? '' : ` - ${tagline}`}</h1>
       <p>${description}</p>
     </article>
   `),
