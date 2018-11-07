@@ -176,6 +176,10 @@ body[data-theme='night'] {
   font-size: 2rem;
 }
 
+.expandable-content-header-icon[data-icon$='up'] {
+  display: none;
+}
+
 .expandable-content-body {
   padding: 0 16px;
 }

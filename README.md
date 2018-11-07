@@ -23,6 +23,6 @@ version of Chrome. Backward compatibility will be introduced in the future.
 
 ## Changelog
 04 Nov 2018: Populate data on the about and project pages with JSON data\
-03 Nov 2018: Built a jQuery-like library to simplify DOM queries\
+03 Nov 2018: Simplify DOM queries with a simple DOM manipulation library\
 03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects\
 27 May 2018: Built the initial website using vanilla JS
