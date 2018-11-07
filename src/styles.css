@@ -12,6 +12,26 @@ body {
   margin: 0;
 }
 
+body[data-theme='day'] {
+  --primary-color: #4fc3f7;
+  --primary-color-dark: #0093c4;
+  --primary-color-light: #8bf6ff;
+  --secondary-color: #e1f5fe;
+  --text-color: #000000de;
+  --primary-color-hover: var(--primary-color-dark);
+  --grey-color-hover: var(--grey-color-light);
+}
+
+body[data-theme='night'] {
+  --primary-color: #01579b;
+  --primary-color-dark: #002f6c;
+  --primary-color-light: #58a5f0;
+  --secondary-color: #039be5;
+  --text-color: #ffffffde;
+  --primary-color-hover: var(--primary-color-light);
+  --grey-color-hover: var(--grey-color-dark);
+}
+
 /* Page */
 .title {
   font-size: 1rem;
