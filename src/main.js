@@ -31,20 +31,3 @@ q('#home-nav-about').click(() => navigate(ROUTES.about));
 
 // Page header
 q('.page-header-nav').click(ev => navigate(ev.target.dataset.href));
-
-q('.expandable-content-header').click((ev) =>  {
-  const parentEl = ev.target.parentElement;
-  const style = parentEl.style;
-  const iconEls = parentEl.getElementsByClassName('expandable-content-header-icon');
-  if (style.maxHeight === 'none') {
-    Array.from(iconEls).forEach(el => (
-      el.style.display = el.dataset.icon.endsWith('down') ? 'inline' : 'none'
-    ));
-    style.maxHeight = '80px';
-  } else {
-    Array.from(iconEls).forEach(el => (
-      el.style.display = el.dataset.icon.endsWith('up') ? 'inline' : 'none'
-    ));
-    style.maxHeight = 'none';
-  }
-});
