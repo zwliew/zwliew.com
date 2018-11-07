@@ -60,7 +60,7 @@ body[data-theme='night'] {
   text-decoration: underline;
 }
 
-.page-content {
+.page-content > * {
   animation: fadein 0.2s ease-out;
 }
 
