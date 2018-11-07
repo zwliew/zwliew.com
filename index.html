@@ -107,32 +107,18 @@
           <img id="about-photo" src="images/profile.jpg">
           <h1 class="title">Zhao Wei Liew (zwliew)</h1>
         </header>
-        <section class="expandable-content">
-          <header class="expandable-content-header">
-            <h2>Education</h2>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-up"></span>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-down"></span>
-          </header>
-          <section class="expandable-content-body page-content" data-content="education"></section>
-        </section>
-        <section class="expandable-content">
-          <header class="expandable-content-header">
-            <h2>Activities</h2>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-up"></span>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-down"></span>
-          </header>
-          <section class="expandable-content-body page-content" data-content="activities"></section>
-        </section>
-        <section class="expandable-content">
-          <header class="expandable-content-header">
-            <h2>Achievements</h2>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-up"></span>
-            <span class="expandable-content-header-icon iconify" data-icon="mdi-chevron-down"></span>
-          </header>
-          <section class="expandable-content-body page-content" data-content="achievements"></section>
-        </section>
+        <expandable-content class="page-content" data-content="education">
+          <h2 slot="title">Education</h2>
+        </expandable-content>
+        <expandable-content class="page-content" data-content="activities">
+          <h2 slot="title">Activities</h2>
+        </expandable-content>
+        <expandable-content class="page-content" data-content="achievements">
+          <h2 slot="title">Achievements</h2>
+        </expandable-content>
       </main>
     </section>
+    <script type="module" src="src/components/expandable-content.js"></script>
     <script type="module" src="src/content.js"></script>
     <script type="module" src="src/router.js"></script>
     <script type="module" src="src/theme.js"></script>

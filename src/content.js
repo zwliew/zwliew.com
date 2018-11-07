@@ -91,7 +91,7 @@ async function displayRoute({ route, rootEl }) {
   const parentEls = rootEl.getElementsByClassName('page-content');
   Array.from(parentEls).forEach((el) => {
     const contentKey = el.dataset.content;
-    el.innerHTML = htmlStrings[contentKey];
+    el.insertAdjacentHTML('beforeend', htmlStrings[contentKey]);
   })
 
   eventBus.post(EVENTS.routeDisplayed, { route });
