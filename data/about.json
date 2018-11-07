@@ -3,18 +3,19 @@
     {
       "name": "Hwa Chong Institution",
       "location": "Singapore",
-      "duration": "2013 - 2018",
+      "period": "2013 - 2018",
       "href": "http://hci.edu.sg"
     }
   ],
   "activities": [
     {
       "name": "Infocomm & Robotics Society",
-      "duration": "2017 - 2018"
+      "period": "2017 - 2018",
+      "href": "https://infocommsociety.com/"
     },
     {
       "name": "Wushu",
-      "duration": "2007 - 2016"
+      "period": "2007 - 2016"
     }
   ],
   "achievements": [

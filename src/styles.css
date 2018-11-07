@@ -56,8 +56,8 @@ body[data-theme='night'] {
   text-decoration: underline;
 }
 
-.page-body {
-  animation: fadein 0.19s ease-out;
+.page-content {
+  animation: fadein 0.2s ease-out;
 }
 
 /* List item */
@@ -72,7 +72,7 @@ body[data-theme='night'] {
 
 .list-item:hover {
   cursor: pointer;
-  transition: background 0.19s ease-out, box-shadow 0.19s ease-out;
+  transition: background 0.2s ease-out, box-shadow 0.2s ease-out;
   background: var(--grey-color-light);
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
 }
@@ -109,7 +109,7 @@ body[data-theme='night'] {
 }
 
 #home-social > svg:hover > path {
-  transition: fill 0.19s ease-out;
+  transition: fill 0.2s ease-out;
   fill: var(--primary-color-hover);
 }
 
@@ -131,7 +131,7 @@ body[data-theme='night'] {
 
 #home > nav > ul > li:hover {
   cursor: pointer;
-  transition: background 0.19s ease-out;
+  transition: background 0.2s ease-out;
   background: var(--grey-color-hover);
 }
 
@@ -168,7 +168,7 @@ body[data-theme='night'] {
 
 .expandable-content-header:hover {
   cursor: pointer;
-  transition: background 0.19s ease-out;
+  transition: background 0.2s ease-out;
   background: var(--grey-color-light);
 }
 

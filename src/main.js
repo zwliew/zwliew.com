@@ -6,11 +6,11 @@ function navigate(route) {
   eventBus.post(EVENTS.navigate, { route });
 }
 
-function setUpEventListeners({ page }) {
-  switch (page) {
+function setUpEventListeners({ route }) {
+  switch (route) {
     case ROUTES.projects:
     case ROUTES.blog:
-      q(`#${page} .list-item`).forEach(item => (
+      q(`#${route} .list-item`).forEach(item => (
         item.click(() => open(item.dataset('href')))
       ));
       break;
