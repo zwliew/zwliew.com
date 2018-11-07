@@ -13,6 +13,11 @@
       "href": "https://github.com/zwliew/xmas-and-friends"
     },
     {
+      "name": "Flash cards",
+      "description": "Quick flash cards for learning on the go. Made initially to aid myself in revisions for my examinations.",
+      "href": "https://github.com/zwliew/flash-cards"
+    },
+    {
       "name": "KawaiiFX",
       "tagline": "cute audio/visual effects",
       "description": "A simple website containing a couple of cute (anime) effects. It was built mainly to experiment with Web Components in its current stage while having fun.",
