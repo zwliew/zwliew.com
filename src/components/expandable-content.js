@@ -34,12 +34,8 @@ template.innerHTML = `
       background: var(--grey-color-light);
     }
 
-    .header-icon {
-      font-size: 2rem;
-    }
-
-    .header-icon[data-icon$='up'] {
-      display: none;
+    #header-icon {
+      font-size: 1.5rem;
     }
 
     #body {
@@ -48,7 +44,8 @@ template.innerHTML = `
   </style>
 
   <header id="header">
-    <slot name="title"></slot>
+    <slot id="header-icon" name="icon"></slot>
+    <slot id="header-title" name="title"></slot>
   </header>
   <section id="body">
     <slot></slot>
