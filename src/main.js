@@ -6,21 +6,6 @@ function navigate(route) {
   eventBus.post(EVENTS.navigate, { route });
 }
 
-function setUpEventListeners({ route }) {
-  switch (route) {
-    case ROUTES.projects:
-    case ROUTES.blog:
-      q(`#${route} .list-item`).forEach(item => (
-        item.click(() => open(item.dataset('href')))
-      ));
-      break;
-    default:
-      break;
-  }
-}
-
-eventBus.register(EVENTS.routeDisplayed, setUpEventListeners);
-
 navigate(location.pathname.replace(/^\/|\/$/g, '') || ROUTES.home);
 
 // Home

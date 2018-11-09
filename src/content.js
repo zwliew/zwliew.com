@@ -11,16 +11,16 @@ const DATA = deepFreeze({
 });
 const LAYOUTS = deepFreeze({
   blog: ({ title, summary, id }) => (`
-    <article class="list-item" data-href="data/blogs/${id}.md">
-      <h1 class="title">${title}</h1>
-      <p>${summary}…</p>
-    </article>
+    <article-summary href="data/blogs/${id}.md">
+      <span slot="title">${title}</span>
+      <span slot="summary">${summary}</span>
+    </article-summary>
   `),
   projects: ({ name, tagline, description, href }) => (`
-    <article class="list-item" data-href="${href}">
-      <h1 class="title">${name}${tagline === undefined ? '' : ` - ${tagline}`}</h1>
-      <p>${description}</p>
-    </article>
+    <article-summary href="${href}">
+      <span slot="title">${name}${tagline === undefined ? '' : ` - ${tagline}`}</span>
+      <span slot="summary">${description}</span>
+    </article-summary>
   `),
   education: ({ name, location, period, href }) => (`
     <p><a href="${href}">${name}, ${location} (${period})</a></p>

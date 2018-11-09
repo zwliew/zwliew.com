@@ -60,31 +60,6 @@ body[data-theme='night'] {
   text-decoration: underline;
 }
 
-.page-content > * {
-  animation: fadein 0.2s ease-out;
-}
-
-/* List item */
-.list-item {
-  border: 1px solid var(--grey-color);
-  border-radius: 8px;
-  margin-top: 16px;
-  max-height: 384px;
-  overflow: hidden;
-  padding: 16px;
-}
-
-.list-item:hover {
-  cursor: pointer;
-  transition: background 0.2s ease-out, box-shadow 0.2s ease-out;
-  background: var(--grey-color-light);
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
-}
-
-.list-item > h1 {
-  font-size: 1.5rem;
-}
-
 #home, #blog, #projects, #about {
   display: none;
 }
@@ -153,12 +128,6 @@ body[data-theme='night'] {
 #about-photo {
   border-radius: 50%;
   width: 240px;
-}
-
-/* Animations */
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* Responsive design */
