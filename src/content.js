@@ -24,13 +24,13 @@ const LAYOUTS = deepFreeze({
     </article-summary>
   `),
   education: ({ name, location, period, href }) => (`
-    <p><a href="${href}">${name}, ${location} (${period})</a></p>
+    <p><a${href ? ` href="${href}"` : ''}>${name}, ${location} (${period})</a></p>
   `),
   activities: ({ name, period, href }) => (`
-    <p><a href="${href}">${name} (${period})</a></p>
+    <p><a${href ? ` href="${href}"` : ''}>${name} (${period})</a></p>
   `),
   achievements: ({ name, award, href }) => (`
-    <p><a href="${href}">${name} - ${award}</a></p>
+    <p><a${href ? ` href="${href}"` : ''}>${name} - ${award}</a></p>
   `),
 });
 
@@ -76,20 +76,26 @@ function layout(content) {
  * Fetches and formats the data for the body of a route before displaying it
  */
 async function displayRoute({ route, rootEl }) {
+  if (!CONTENTS.routes.hasOwnProperty(route)) {
+    return;
+  }
+
   if (!(rootEl instanceof HTMLElement)) {
     console.warn(`rootEl ${rootEl} is invalid.`);
     return;
   }
 
   const htmlStrings = layout(await fetchContent(route));
-  if (htmlStrings == null) {
+  if (htmlStrings === null) {
     return;
   }
 
   const parentEls = rootEl.getElementsByClassName('page-content');
   Array.from(parentEls).forEach((el) => {
     const contentKey = el.dataset.content;
-    el.innerHTML = htmlStrings[contentKey];
+    if (el.innerHTML !== htmlStrings[contentKey]) {
+      el.innerHTML = htmlStrings[contentKey];
+    }
   })
 
   eventBus.post(EVENTS.routeDisplayed, { route });
