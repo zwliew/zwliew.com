@@ -15,4 +15,4 @@ q('#home-nav-projects').click(() => navigate(ROUTES.projects));
 q('#home-nav-about').click(() => navigate(ROUTES.about));
 
 // Page header
-q('.page-header-nav').click(ev => navigate(ev.target.dataset.href));
+q('.page-nav-link').click(ev => navigate(ev.target.dataset.href));
