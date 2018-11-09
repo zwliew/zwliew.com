@@ -1,7 +1,8 @@
 import { deepFreeze } from './utils.js';
 import eventBus, { EVENTS } from './eventBus.js';
+import store from './store.js';
 
-const DATA = deepFreeze({
+const CONTENTS = deepFreeze({
   url: 'data/',
   routes: {
     about: 'about.json',
@@ -36,16 +37,18 @@ const LAYOUTS = deepFreeze({
 /**
  * Fetches the data for a page
  */
-async function fetchData(route) {
-  if (!DATA.routes.hasOwnProperty(route)) {
-    return null;
+async function fetchContent(route) {
+  const content = store.get(route);
+  if (content !== undefined) {
+    return content;
   }
 
   try {
-    const res = await fetch(`${DATA.url}${DATA.routes[route]}`);
-    return await res.json();
+    const res = await fetch(`${CONTENTS.url}${CONTENTS.routes[route]}`);
+    const json = await res.json();
+    store.set(route, json);
+    return json;
   } catch (err) {
-    console.log(err)
     console.warn(`Failed to fetch data for ${route}.`);
     return null;
   }
@@ -54,16 +57,16 @@ async function fetchData(route) {
 /**
  * Returns an HTML string of the layout of the page body
  */
-function layout(data) {
-  if (data === null || data === undefined) {
-    console.warn(`Data ${data} is invalid.`);
+function layout(content) {
+  if (content === null) {
+    console.warn(`Content ${content} is invalid.`);
     return null;
   }
 
   const htmlStrings = {};
-  Object.keys(data).forEach((key) => {
+  Object.keys(content).forEach((key) => {
     const layout = LAYOUTS[key];
-    htmlStrings[key] = data[key].map(datum => layout(datum)).reduce((acc, cur) => acc + cur);
+    htmlStrings[key] = content[key].map(datum => layout(datum)).reduce((acc, cur) => acc + cur);
   });
 
   return htmlStrings;
@@ -78,12 +81,7 @@ async function displayRoute({ route, rootEl }) {
     return;
   }
 
-  const data = await fetchData(route);
-  if (data === null) {
-    return;
-  }
-
-  const htmlStrings = layout(data);
+  const htmlStrings = layout(await fetchContent(route));
   if (htmlStrings == null) {
     return;
   }
