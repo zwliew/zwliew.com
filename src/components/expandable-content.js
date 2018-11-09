@@ -8,6 +8,7 @@ template.innerHTML = `
     :host {
       border: 1px solid var(--grey-color);
       border-radius: 8px;
+      display: block;
       margin-top: 16px;
       max-height: 80px;
       overflow: hidden;
@@ -30,12 +31,14 @@ template.innerHTML = `
 
     #header:hover {
       cursor: pointer;
-      transition: background 0.2s ease-out;
       background: var(--grey-color-light);
+      transition: background 0.2s ease-out;
     }
 
     #header-icon {
       font-size: 1.5rem;
+      display: inline-block;
+      margin-right: 8px;
     }
 
     #header-title {
