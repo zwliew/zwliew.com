@@ -37,9 +37,7 @@ body[data-theme='night'] {
 
 /* Page */
 .title {
-  font-size: 1rem;
   font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.2;
 }
 
 .page {
@@ -47,8 +45,8 @@ body[data-theme='night'] {
 }
 
 .page-header {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .page-header > nav {
@@ -134,10 +132,6 @@ body[data-theme='night'] {
 @media screen and (min-width: 600px) {
   .page {
     padding: 16px 32px;
-  }
-
-  .title {
-    font-size: 1.2rem;
   }
 }
 
