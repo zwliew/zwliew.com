@@ -8,8 +8,8 @@ template.innerHTML = `
     :host {
       border: 1px solid var(--grey-color);
       border-radius: 8px;
-      max-height: 80px;
       margin-top: 16px;
+      max-height: 80px;
       overflow: hidden;
     }
 
@@ -38,6 +38,10 @@ template.innerHTML = `
       font-size: 1.5rem;
     }
 
+    #header-title {
+      font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
+    }
+
     #body {
       padding: 0 16px;
     }
@@ -45,7 +49,7 @@ template.innerHTML = `
 
   <header id="header">
     <slot id="header-icon" name="icon"></slot>
-    <slot id="header-title" name="title"></slot>
+    <h2 id="header-title"><slot name="title"></slot></h2>
   </header>
   <section id="body">
     <slot></slot>
