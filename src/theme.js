@@ -16,7 +16,9 @@ function switchTheme(theme) {
     return;
   }
   curTheme = theme;
+  document.body.toggleAttribute('switching-theme');
   document.body.dataset.theme = theme;
+  setTimeout(() => document.body.toggleAttribute('switching-theme'), 300);
 }
 
 {

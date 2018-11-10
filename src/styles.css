@@ -37,6 +37,10 @@ body[data-theme='night'] {
   --grey-color-hover: var(--grey-color-dark);
 }
 
+body[switching-theme] {
+  transition: all 200ms;
+}
+
 /* Page */
 .title {
   font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
