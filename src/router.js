@@ -62,7 +62,9 @@ class Router {
    */
   navigate(route) {
     if (!ROUTES.hasOwnProperty(route)) {
-      console.warn(`Route '${route}' does not exist; redirecting to home.`);
+      if (route !== '') {
+        console.warn(`Route '${route}' does not exist; redirecting to home.`);
+      }
       route = ROUTES.home;
     }
 

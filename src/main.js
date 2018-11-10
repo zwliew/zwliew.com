@@ -6,7 +6,7 @@ function navigate(route) {
   eventBus.post(EVENTS.navigate, { route });
 }
 
-navigate(location.pathname.replace(/^\/|\/$/g, '') || ROUTES.home);
+navigate(location.pathname.replace(/^\/|\/$/g, ''));
 
 // Home
 q('.home-social').click(ev => open(ev.target.dataset.href));
