@@ -3,7 +3,7 @@ import { deepFreeze } from './utils.js';
 export const EVENTS = deepFreeze({
   navigate: 'navigate',
   navigateLate: 'navigateLate',
-  routeDisplayed: 'routeDisplayed',
+  switchTheme: 'switchTheme',
 });
 
 class EventBus {

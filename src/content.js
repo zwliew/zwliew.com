@@ -97,8 +97,6 @@ async function displayRoute({ route, rootEl }) {
       el.innerHTML = htmlStrings[contentKey];
     }
   })
-
-  eventBus.post(EVENTS.routeDisplayed, { route });
 };
 
 eventBus.register(EVENTS.navigateLate, (data) => displayRoute(data));

@@ -1,6 +1,7 @@
 import q from './query.js';
 import { ROUTES } from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
+import { curTheme, THEMES } from './theme.js';
 
 function navigate(route) {
   eventBus.post(EVENTS.navigate, { route });
@@ -14,3 +15,8 @@ q('#home-nav-about').click(() => navigate(ROUTES.about));
 
 // Page header
 q('.page-nav-link').click(ev => navigate(ev.target.dataset.href));
+q('.page-nav-theme').click(ev => (
+  eventBus.post(EVENTS.switchTheme, {
+    theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
+  })
+));
