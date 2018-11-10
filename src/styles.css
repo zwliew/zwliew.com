@@ -6,7 +6,7 @@
 body {
   --grey-color: #b0b0b0;
   --grey-color-light: #eee;
-  --grey-color-dark: #a4a4a4;
+  --grey-color-dark: #666;
 
   background: var(--background-color);
   color: var(--text-color);
