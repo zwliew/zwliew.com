@@ -45,7 +45,13 @@ body[data-theme='night'] {
 }
 
 .page-nav {
+  display: flex;
   font-size: 1.1rem;
+}
+
+.page-nav-item:nth-of-type(n+2)::before {
+  content: '|';
+  margin: 0 4px;
 }
 
 .page-nav-link:hover {
