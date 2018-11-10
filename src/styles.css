@@ -8,14 +8,15 @@ body {
   --grey-color-light: #eee;
   --grey-color-dark: #a4a4a4;
 
-  background: #fefefe;
-  color: #454545;
+  background: var(--background-color);
+  color: var(--text-color);
   font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.4;
   margin: 0;
 }
 
 body[data-theme='day'] {
+  --background-color: #fefefe;
   --primary-color: #4fc3f7;
   --primary-color-dark: #0093c4;
   --primary-color-light: #8bf6ff;
@@ -26,6 +27,7 @@ body[data-theme='day'] {
 }
 
 body[data-theme='night'] {
+  --background-color: #333;
   --primary-color: #01579b;
   --primary-color-dark: #002f6c;
   --primary-color-light: #58a5f0;

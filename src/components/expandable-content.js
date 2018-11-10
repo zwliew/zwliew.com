@@ -19,7 +19,7 @@ template.innerHTML = `
     }
 
     :host([expanded]) > #header {
-      background: var(--grey-color);
+      background: var(--grey-color-hover);
     }
 
     #header {
@@ -31,7 +31,7 @@ template.innerHTML = `
 
     #header:hover {
       cursor: pointer;
-      background: var(--grey-color-light);
+      background: var(--grey-color-hover);
       transition: background 0.2s ease-out;
     }
 
