@@ -51,10 +51,11 @@ function handlePopState({state}) {
 
 class Router {
   constructor() {
-    eventBus.register(EVENTS.navigate, ({ route }) => this.navigate(route));
-    window.addEventListener('popstate', handlePopState.bind(this));
     this.sectionEls = Object.keys(ROUTES)
       .map(name => document.getElementById(name));
+    window.addEventListener('popstate', handlePopState.bind(this));
+    this.navigate(location.pathname.replace(/^\/|\/$/g, ''));
+    eventBus.register(EVENTS.navigate, ({ route }) => this.navigate(route));
   }
 
   /**
