@@ -1,6 +1,6 @@
 # zwliew.github.io
 
-My personal website (portfolio, blog, and stuff).
+My personal website (portfolio, notes, etc.).
 
 ## Available hosts:
 https://zwliew.netlify.com (preferred)\

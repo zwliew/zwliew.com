@@ -3,7 +3,7 @@ import { deepFreeze } from './utils.js';
 
 export const ROUTES = deepFreeze({
   home: 'home',
-  blog: 'blog',
+  notes: 'notes',
   projects: 'projects',
   about: 'about',
 });
@@ -13,9 +13,9 @@ const ROUTE_INFO = deepFreeze({
     path: '/',
     display: 'flex',
   },
-  [ROUTES.blog]: {
-    title: 'Blog',
-    path: '/blog',
+  [ROUTES.notes]: {
+    title: 'Notes',
+    path: '/notes',
     display: 'block',
   },
   [ROUTES.projects]: {

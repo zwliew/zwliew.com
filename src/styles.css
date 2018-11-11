@@ -79,7 +79,7 @@ body[switching-theme] {
   cursor: pointer;
 }
 
-#home, #blog, #projects, #about {
+#home, #notes, #projects, #about {
   display: none;
 }
 

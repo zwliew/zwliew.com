@@ -7,12 +7,12 @@ const CONTENTS = deepFreeze({
   routes: {
     about: 'about.json',
     projects: 'projects.json',
-    blog: 'blog.json',
+    notes: 'notes.json',
   },
 });
 const LAYOUTS = deepFreeze({
-  blog: ({ title, summary, id }) => (`
-    <article-summary href="data/blogs/${id}.md">
+  notes: ({ title, summary, id }) => (`
+    <article-summary href="data/notes/${id}.md">
       <span slot="title">${title}</span>
       <span slot="summary">${summary}</span>
     </article-summary>
