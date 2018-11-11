@@ -29,6 +29,12 @@ class Element {
     return this.elements[index];
   }
 
+  *[Symbol.iterator]() {
+    for (let el of this.elements) {
+      yield el;
+    }
+  }
+
   /**
    * Applies a callback to each of the elements
    */
