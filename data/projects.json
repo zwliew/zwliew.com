@@ -3,18 +3,29 @@
     {
       "name": "LineageOS",
       "tagline": "the largest third-party Android distribution",
-      "description": "Being a member of the LineageOS team for a several years, I've maintained ports for several devices, such as the Samsung Galaxy S4 and the Xiaomi Redmi 3S. I've also worked on user-facing features in the framework and apps, such as the LineageParts app and the touchscreen gestures that come with it.",
+      "description": "Maintained ports for various devices, including the Galaxy S4 and Redmi 3S. Worked on custom features like the touchscreen gestures system. Brought up various features from older versions to newer versions.",
       "href": "https://lineageos.org"
     },
     {
       "name": "Xmas and Friends",
-      "tagline": "gamifying Chinese learning for elementary students",
-      "description": "Together with a team of schoolmates, we've designed and built a Unity mobile game revolving around various festivities in Singapore. The game aims to make the learning of Chinese more enjoyable for elementary students. The game was built with Unity, and was done as part of a national competition.",
+      "tagline": "a Unity mobile game for learning Chinese",
+      "description": "A team project for a national inter-school competition, in which we achieved the top prize. Inspired by Monument Valley.",
       "href": "https://github.com/zwliew/xmas-and-friends"
     },
     {
+      "name": "Optical Localisation of Robots",
+      "description": "A team project for the NUS Hack&Roll 2018 hackathon. Optically localized a sensor-less robot in a robotics play field via a camera with a bird's-eye view and a server that updates the robots of their positions.",
+      "href": "https://github.com/ragulbalaji/Optical-Localisation-Robotics"
+    },
+    {
+      "name": "Enhanced Ant Colony Optimization in Networks",
+      "description": "A team project. Applied ant colony optimization techniques in enhancing network throughput in a modelled network. Built an interface for visualizing network performance.",
+      "href": "https://github.com/Piyotato/ds2016"
+    },
+    {
       "name": "Flash cards",
-      "description": "Quick flash cards for learning on the go. Made initially to aid myself in revisions for my examinations.",
+      "tagline": "for learning on the go",
+      "description": "Made to aid myself in my revisions for the GCE A-level examination.",
       "href": "https://github.com/zwliew/flash-cards"
     }
   ]
