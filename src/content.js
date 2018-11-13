@@ -48,8 +48,7 @@ async function fetchContent(route) {
     const json = await res.json();
     store.set(route, json);
     return json;
-  } catch (err) {
-    console.warn(`Failed to fetch data for ${route}.`);
+  } catch (_) {
     return null;
   }
 }
@@ -58,17 +57,12 @@ async function fetchContent(route) {
  * Returns an HTML string of the layout of the page body
  */
 function layout(content) {
-  if (content === null) {
-    console.warn(`Content ${content} is invalid.`);
-    return null;
-  }
-
   const htmlStrings = {};
   Object.keys(content).forEach((key) => {
     const layout = LAYOUTS[key];
-    htmlStrings[key] = content[key].map(datum => layout(datum)).reduce((acc, cur) => acc + cur);
+    htmlStrings[key] = content[key].map(
+      datum => layout(datum)).reduce((acc, cur) => acc + cur);
   });
-
   return htmlStrings;
 }
 
@@ -76,20 +70,11 @@ function layout(content) {
  * Fetches and formats the data for the body of a route before displaying it
  */
 async function displayRoute({ route, rootEl }) {
-  if (!CONTENTS.routes.hasOwnProperty(route)) {
+  const content = await fetchContent(route);
+  if (content === null) {
     return;
   }
-
-  if (!(rootEl instanceof HTMLElement)) {
-    console.warn(`rootEl ${rootEl} is invalid.`);
-    return;
-  }
-
-  const htmlStrings = layout(await fetchContent(route));
-  if (htmlStrings === null) {
-    return;
-  }
-
+  const htmlStrings = layout(content);
   const parentEls = rootEl.getElementsByClassName('page-content');
   Array.from(parentEls).forEach((el) => {
     const contentKey = el.dataset.content;
