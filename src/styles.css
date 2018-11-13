@@ -41,6 +41,12 @@ body[switching-theme] {
   transition: all 200ms;
 }
 
+.profile-photo {
+  border: 2px solid var(--grey-color-light);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
 /* Page */
 .title {
   font-family: Nunito, Roboto, Helvetica, Arial, sans-serif;
@@ -93,6 +99,12 @@ body[switching-theme] {
   height: 100vh;
 }
 
+#home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #home-title {
   font-size: 2.5rem;
   margin-bottom: 8px;
@@ -142,11 +154,6 @@ body[switching-theme] {
 
 #about > main > header {
   text-align: center;
-}
-
-#about-photo {
-  border-radius: 50%;
-  width: 240px;
 }
 
 /* Responsive design */
