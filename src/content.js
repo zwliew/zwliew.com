@@ -70,10 +70,8 @@ function layout(content) {
  * Fetches and formats the data for the body of a route before displaying it
  */
 async function displayRoute({ route, rootEl }) {
+  if (!CONTENTS.routes.hasOwnProperty(route)) return;
   const content = await fetchContent(route);
-  if (content === null) {
-    return;
-  }
   const htmlStrings = layout(content);
   const parentEls = rootEl.getElementsByClassName('page-content');
   Array.from(parentEls).forEach((el) => {
