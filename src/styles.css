@@ -56,35 +56,6 @@ body[switching-theme] {
   padding: 16px;
 }
 
-.page-nav {
-  display: flex;
-  font-size: 1.1rem;
-}
-
-.page-nav-item:nth-of-type(n+2):not(:last-of-type)::before {
-  content: '|';
-  margin: 0 4px;
-}
-
-.page-nav-link:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.page-nav-theme {
-  background: var(--primary-color);
-  border: 2px solid var(--grey-color);
-  border-radius: 100%;
-  display: inline-block;
-  height: 24px;
-  margin-left: auto;
-  width: 24px;
-}
-
-.page-nav-theme:hover {
-  cursor: pointer;
-}
-
 #home, #notes, #projects, #about {
   display: none;
 }

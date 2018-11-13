@@ -76,39 +76,21 @@
 
     <!-- Notes -->
     <section id="notes" class="page">
-      <nav class="page-nav title">
-        <span class="page-nav-link page-nav-item" data-href="home">home</span>
-        <span class="page-nav-item"><strong>notes</strong></span>
-        <span class="page-nav-link page-nav-item" data-href="projects">projects</span>
-        <span class="page-nav-link page-nav-item" data-href="about">about</span>
-        <span class="page-nav-item page-nav-theme"></span>
-      </nav>
+      <route-nav></route-nav>
       <p><em>Click on any of the articles to read on.</em></p>
       <section class="page-content" data-content="notes"></section>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="page">
-      <nav class="page-nav title">
-        <span class="page-nav-link page-nav-item" data-href="home">home</span>
-        <span class="page-nav-link page-nav-item" data-href="notes">notes</span>
-        <span class="page-nav-item"><strong>projects</strong></span>
-        <span class="page-nav-link page-nav-item" data-href="about">about</span>
-        <span class="page-nav-item page-nav-theme"></span>
-      </nav>
+      <route-nav></route-nav>
       <p><em>Click on any of the projects to find out more.</em></p>
       <section class="page-content" data-content="projects"></section>
     </section>
 
     <!-- About -->
     <section id="about" class="page">
-      <nav class="page-nav title">
-        <span class="page-nav-link page-nav-item" data-href="home">home</span>
-        <span class="page-nav-link page-nav-item" data-href="notes">notes</span>
-        <span class="page-nav-link page-nav-item" data-href="projects">projects</span>
-        <span class="page-nav-item"><strong>about</strong></span>
-        <span class="page-nav-item page-nav-theme"></span>
-      </nav>
+      <route-nav></route-nav>
       <main>
         <header>
           <picture>
@@ -134,6 +116,7 @@
         </expandable-content>
       </main>
     </section>
+    <script type="module" src="src/components/route-nav.js"></script>
     <script type="module" src="src/components/article-summary.js"></script>
     <script type="module" src="src/components/expandable-content.js"></script>
     <script type="module" src="src/content.js"></script>
