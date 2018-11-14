@@ -131,10 +131,6 @@
     <script type="module">
       import eventBus, { EVENTS } from './src/eventBus.js';
 
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
-      }
-
       document.getElementById('home-nav').addEventListener('click', (event) => {
         const route = event.target.dataset.route;
         if (!route) return;
@@ -145,6 +141,10 @@
         route: location.pathname.replace(/^\/|\/$/g, ''),
         history: 'replace',
       });
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
     </script>
   </body>
 </html>
