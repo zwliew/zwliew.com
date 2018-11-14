@@ -7,7 +7,6 @@ function navigate(route) {
 }
 
 // Home
-q('.home-social').click(ev => open(ev.target.dataset.href));
 q('#home-nav-notes').click(() => navigate(ROUTES.notes));
 q('#home-nav-projects').click(() => navigate(ROUTES.projects));
 q('#home-nav-about').click(() => navigate(ROUTES.about));

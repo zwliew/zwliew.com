@@ -86,15 +86,16 @@ a {
   text-align: center;
 }
 
-#home-social > svg {
+.home-social {
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.home-social > svg {
   font-size: 2.5rem;
 }
 
-#home-social > svg:hover {
-  cursor: pointer;
-}
-
-#home-social > svg:hover > path {
+.home-social > svg:hover > path {
   transition: fill 0.2s ease-out;
   fill: var(--primary-color-hover);
 }
