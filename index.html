@@ -134,6 +134,7 @@
     <script type="module">
       import eventBus, { EVENTS } from './src/eventBus.js';
       import { THEMES, curTheme } from './src/theme.js';
+      import { isDayTime } from './src/utils.js';
 
       document.getElementById('home-nav').addEventListener('click', (event) => {
         const route = event.target.dataset.route;
@@ -151,6 +152,9 @@
       eventBus.post(EVENTS.navigate, {
         route: location.pathname.replace(/^\/|\/$/g, ''),
         history: 'replace',
+      });
+      eventBus.post(EVENTS.switchTheme, {
+        theme: isDayTime() ? THEMES.day : THEMES.night,
       });
 
       if ('serviceWorker' in navigator) {

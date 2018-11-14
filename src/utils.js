@@ -20,3 +20,8 @@ export function deepFreeze(obj) {
 export function isString(obj) {
   return typeof obj === 'string' || obj instanceof String;
 }
+
+export function isDayTime(date = new Date()) {
+  const hours = date.getHours();
+  return hours >= 7 && hours < 19;
+}

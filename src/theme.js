@@ -21,9 +21,4 @@ function switchTheme(theme) {
   setTimeout(() => document.body.toggleAttribute('switching-theme'), 300);
 }
 
-{
-const hours = (new Date()).getHours();
-switchTheme(hours >= 7 && hours < 19 ? THEMES.day : THEMES.night);
-
 eventBus.register(EVENTS.switchTheme, ({theme}) => switchTheme(theme));
-}
