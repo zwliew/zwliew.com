@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zwliew-0.1.1';
+const CACHE_NAME = 'zwliew-1.0.0';
 const URLS_TO_CACHE = [
   '/',
   '/manifest.json',
