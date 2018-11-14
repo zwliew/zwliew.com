@@ -11,10 +11,6 @@ export let curTheme = THEMES.day;
  * Switches the theme colors for an element
  */
 function switchTheme(theme) {
-  if (!THEMES.hasOwnProperty(theme)) {
-    console.warn(`Theme ${theme} does not exist.`);
-    return;
-  }
   curTheme = theme;
   document.body.toggleAttribute('switching-theme');
   document.body.dataset.theme = theme;
