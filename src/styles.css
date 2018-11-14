@@ -122,6 +122,20 @@ a {
   background: var(--grey-color-hover);
 }
 
+#home-footer-theme {
+  background: var(--primary-color);
+  border: 2px solid var(--grey-color);
+  border-radius: 100%;
+  display: inline-block;
+  height: 24px;
+  margin-left: auto;
+  width: 24px;
+}
+
+#home-footer-theme:hover {
+  cursor: pointer;
+}
+
 /* About route */
 #about > main {
   display: flex;

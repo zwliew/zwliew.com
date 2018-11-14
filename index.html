@@ -78,6 +78,9 @@
           <li data-route="about">about</li>
         </ul>
       </nav>
+      <footer>
+        <span id="home-footer-theme"></span>
+      </footer>
     </section>
 
     <!-- Notes -->
@@ -130,12 +133,20 @@
     <script type="module" src="src/theme.js"></script>
     <script type="module">
       import eventBus, { EVENTS } from './src/eventBus.js';
+      import { THEMES, curTheme } from './src/theme.js';
 
       document.getElementById('home-nav').addEventListener('click', (event) => {
         const route = event.target.dataset.route;
         if (!route) return;
         eventBus.post(EVENTS.navigate, { route });
       });
+
+      document.getElementById('home-footer-theme')
+        .addEventListener('click', (event) => {
+          eventBus.post(EVENTS.switchTheme, {
+            theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
+          });
+        });
 
       eventBus.post(EVENTS.navigate, {
         route: location.pathname.replace(/^\/|\/$/g, ''),

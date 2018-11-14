@@ -81,7 +81,7 @@ class RouteNav extends HTMLElement {
     } else {
       eventBus.post(EVENTS.switchTheme, {
         theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
-      })
+      });
     }
   }
 
