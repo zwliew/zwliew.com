@@ -10,11 +10,14 @@ export let curTheme = THEMES.day;
 /**
  * Switches the theme colors for an element
  */
-function switchTheme(theme) {
+function switchTheme(theme, transition = true) {
   curTheme = theme;
-  document.body.toggleAttribute('switching-theme');
-  document.body.dataset.theme = theme;
-  setTimeout(() => document.body.toggleAttribute('switching-theme'), 300);
+  if (transition) {
+    document.body.toggleAttribute('switching-theme');
+    setTimeout(() => document.body.toggleAttribute('switching-theme'), 300);
+  }
+  document.body.dataset.theme = curTheme;
 }
 
-eventBus.register(EVENTS.switchTheme, ({theme}) => switchTheme(theme));
+eventBus.register(EVENTS.switchTheme,
+  ({ theme, transition }) => switchTheme(theme, transition));

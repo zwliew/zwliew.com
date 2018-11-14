@@ -155,6 +155,7 @@
       });
       eventBus.post(EVENTS.switchTheme, {
         theme: isDayTime() ? THEMES.day : THEMES.night,
+        transition: false,
       });
 
       if ('serviceWorker' in navigator) {
