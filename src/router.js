@@ -6,6 +6,7 @@ export const ROUTES = deepFreeze({
   notes: 'notes',
   projects: 'projects',
   about: 'about',
+  404: '404',
 });
 const ROUTE_INFO = deepFreeze({
   [ROUTES.home]: {
@@ -26,6 +27,11 @@ const ROUTE_INFO = deepFreeze({
   [ROUTES.about]: {
     title: 'About',
     path: '/about',
+    display: 'block',
+  },
+  [ROUTES[404]]: {
+    title: '404',
+    path: '/404',
     display: 'block',
   },
 });
@@ -55,7 +61,8 @@ function updateHistory(route, title, path, type) {
 }
 
 function navigate({ route, history = 'push' }) {
-  if (!ROUTES.hasOwnProperty(route)) route = ROUTES.home;
+  if (route === '') route = ROUTES.home;
+  if (!ROUTES.hasOwnProperty(route)) route = ROUTES[404];
   const { title, path } = ROUTE_INFO[route];
   updateDOM(route, title);
   updateHistory(route, title, path, history);
