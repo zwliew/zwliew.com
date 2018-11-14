@@ -38,7 +38,7 @@ function handlePopState({ state }) {
 function updateDOM(route, title) {
   document.title = title;
   sectionEls.forEach((el) => {
-    if (el.id === route) {
+    if (el.dataset.route === route) {
       el.style.display = ROUTE_INFO[route].display;
     } else {
       el.style.display = 'none';
@@ -61,11 +61,11 @@ function navigate({ route, history = 'push' }) {
   updateHistory(route, title, path, history);
   eventBus.post(EVENTS.navigateLate, {
     route,
-    rootEl: sectionEls.filter(el => el.id === route)[0],
+    rootEl: sectionEls.filter(el => el.dataset.route === route)[0],
   });
 }
 
-const sectionEls = Object.keys(ROUTES).map(name => document.getElementById(name));
+const sectionEls = [...document.getElementsByClassName('route')];
 
 addEventListener('popstate', handlePopState);
 eventBus.register(EVENTS.navigate, navigate);

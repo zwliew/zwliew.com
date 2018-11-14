@@ -76,7 +76,7 @@ async function displayRoute({ route, rootEl }) {
   if (content === null) return;
 
   const htmlStrings = layout(content);
-  const parentEls = rootEl.getElementsByClassName('page-content');
+  const parentEls = rootEl.getElementsByClassName('route-content');
   Array.from(parentEls).forEach((el) => {
     const contentKey = el.dataset.content;
     if (el.innerHTML !== htmlStrings[contentKey]) {

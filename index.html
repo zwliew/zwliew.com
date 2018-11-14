@@ -52,7 +52,7 @@
   </head>
   <body>
     <!-- Home -->
-    <section id="home">
+    <section data-route="home" class="route">
       <header id="home-header">
         <picture>
           <source srcset="img/profile.webp">
@@ -84,21 +84,21 @@
     </section>
 
     <!-- Notes -->
-    <section id="notes" class="page">
+    <section data-route="notes" class="route">
       <route-nav></route-nav>
       <p><em>Click on any of the articles to read on.</em></p>
-      <section class="page-content" data-content="notes"></section>
+      <section class="route-content" data-content="notes"></section>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="page">
+    <section data-route="projects" class="route">
       <route-nav></route-nav>
       <p><em>Click on any of the projects to find out more.</em></p>
-      <section class="page-content" data-content="projects"></section>
+      <section class="route-content" data-content="projects"></section>
     </section>
 
     <!-- About -->
-    <section id="about" class="page">
+    <section data-route="about" class="route">
       <route-nav></route-nav>
       <main>
         <header>
@@ -111,17 +111,17 @@
         <expandable-content>
           <span slot="icon" class="iconify" data-icon="mdi-school"></span>
           <span slot="title">Education</span>
-          <section class="page-content" data-content="education"></section>
+          <section class="route-content" data-content="education"></section>
         </expandable-content>
         <expandable-content>
           <span slot="icon" class="iconify" data-icon="mdi-swim"></span>
           <span slot="title">Activities</span>
-          <section class="page-content" data-content="activities"></section>
+          <section class="route-content" data-content="activities"></section>
         </expandable-content>
         <expandable-content>
           <span slot="icon" class="iconify" data-icon="mdi-trophy"></span>
           <span slot="title">Achievements</span>
-          <section class="page-content" data-content="achievements"></section>
+          <section class="route-content" data-content="achievements"></section>
         </expandable-content>
       </main>
     </section>
