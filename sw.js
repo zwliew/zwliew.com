@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zwliew-0.1.0-1';
+const CACHE_NAME = 'zwliew-0.1.1';
 const URLS_TO_CACHE = [
   '/',
   '/manifest.json',
@@ -9,7 +9,6 @@ const URLS_TO_CACHE = [
   '/src/content.js',
   '/src/router.js',
   '/src/theme.js',
-  '/src/main.js',
   '/src/eventBus.js',
   '/src/utils.js',
   '/src/query.js',

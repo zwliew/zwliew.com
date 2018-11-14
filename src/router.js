@@ -69,7 +69,3 @@ const sectionEls = Object.keys(ROUTES).map(name => document.getElementById(name)
 
 addEventListener('popstate', handlePopState);
 eventBus.register(EVENTS.navigate, navigate);
-eventBus.post(EVENTS.navigate, {
-  route: location.pathname.replace(/^\/|\/$/g, ''),
-  history: 'replace',
-});

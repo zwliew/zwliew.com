@@ -128,11 +128,23 @@
     <script type="module" src="src/content.js"></script>
     <script type="module" src="src/router.js"></script>
     <script type="module" src="src/theme.js"></script>
-    <script type="module" src="src/main.js"></script>
-    <script>
+    <script type="module">
+      import eventBus, { EVENTS } from './src/eventBus.js';
+
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js');
       }
+
+      document.getElementById('home-nav').addEventListener('click', (event) => {
+        const route = event.target.dataset.route;
+        if (!route) return;
+        eventBus.post(EVENTS.navigate, { route });
+      });
+
+      eventBus.post(EVENTS.navigate, {
+        route: location.pathname.replace(/^\/|\/$/g, ''),
+        history: 'replace',
+      });
     </script>
   </body>
 </html>
