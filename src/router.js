@@ -30,25 +30,20 @@ const ROUTE_INFO = deepFreeze({
   },
 });
 
-function makeRouteVisible(route, sectionEls) {
+function handlePopState({ state }) {
+  if (state === null) return;
+  updateDOM(state, ROUTE_INFO[state].title);
+}
+
+function updateDOM(route, title) {
+  document.title = title;
   sectionEls.forEach((el) => {
-    if (el.id !== route) {
-      el.style.display = 'none';
-    } else {
+    if (el.id === route) {
       el.style.display = ROUTE_INFO[route].display;
+    } else {
+      el.style.display = 'none';
     }
   });
-}
-
-function handlePopState({state}) {
-  console.log(state)
-  if (state === null) return;
-  updateDOM(state, this.sectionEls, ROUTE_INFO[state].title);
-}
-
-function updateDOM(route, sectionEls, title) {
-  document.title = `Zhao Wei - ${title}`;
-  makeRouteVisible(route, sectionEls);
 }
 
 function updateHistory(route, title, path, type) {
@@ -59,35 +54,22 @@ function updateHistory(route, title, path, type) {
   }
 }
 
-class Router {
-  constructor() {
-    this.sectionEls = Object.keys(ROUTES)
-      .map(name => document.getElementById(name));
-    window.addEventListener('popstate', handlePopState.bind(this));
-    this.navigate(location.pathname.replace(/^\/|\/$/g, ''), 'replace');
-    eventBus.register(EVENTS.navigate, ({ route }) => this.navigate(route));
-  }
-
-  /**
-   * Navigates to a page
-   */
-  navigate(route, historyType = 'push') {
-    if (!ROUTES.hasOwnProperty(route)) {
-      if (route !== '') {
-        console.warn(`Route '${route}' does not exist; redirecting to home.`);
-      }
-      route = ROUTES.home;
-    }
-
-    const { title, path } = ROUTE_INFO[route];
-    updateDOM(route, this.sectionEls, title);
-    updateHistory(route, title, path, historyType);
-    eventBus.post(EVENTS.navigateLate, {
-      route,
-      rootEl: this.sectionEls.filter(el => el.id === route)[0],
-    });
-  }
+function navigate({ route, history = 'push' }) {
+  if (!ROUTES.hasOwnProperty(route)) route = ROUTES.home;
+  const { title, path } = ROUTE_INFO[route];
+  updateDOM(route, title);
+  updateHistory(route, title, path, history);
+  eventBus.post(EVENTS.navigateLate, {
+    route,
+    rootEl: sectionEls.filter(el => el.id === route)[0],
+  });
 }
 
-const router = new Router();
-export default router;
+const sectionEls = Object.keys(ROUTES).map(name => document.getElementById(name));
+
+addEventListener('popstate', handlePopState);
+eventBus.register(EVENTS.navigate, navigate);
+eventBus.post(EVENTS.navigate, {
+  route: location.pathname.replace(/^\/|\/$/g, ''),
+  history: 'replace',
+});

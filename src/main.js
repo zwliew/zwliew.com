@@ -1,7 +1,6 @@
 import q from './query.js';
 import { ROUTES } from './router.js';
 import eventBus, { EVENTS } from './eventBus.js';
-import { curTheme, THEMES } from './theme.js';
 
 function navigate(route) {
   eventBus.post(EVENTS.navigate, { route });
