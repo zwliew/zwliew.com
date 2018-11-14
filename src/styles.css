@@ -41,6 +41,10 @@ body[switching-theme] {
   transition: all 200ms;
 }
 
+a {
+  color: inherit;
+}
+
 .profile-photo {
   border: 2px solid var(--grey-color-light);
   border-radius: 50%;
