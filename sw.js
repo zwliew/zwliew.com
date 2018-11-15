@@ -1,4 +1,4 @@
-// Version 1.1.0
+// Version 1.1.1
 const CACHE_NAME = 'zwliew';
 const URLS_TO_CACHE = [
   '/',
@@ -12,7 +12,6 @@ const URLS_TO_CACHE = [
   '/src/theme.js',
   '/src/eventBus.js',
   '/src/utils.js',
-  '/src/query.js',
   '/img/profile.webp',
 ];
 
