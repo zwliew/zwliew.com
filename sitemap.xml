@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://zwliew.netlify.com/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.netlify.com/notes</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.netlify.com/projects</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.netlify.com/about</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.github.io/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.github.io/notes</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.github.io/projects</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zwliew.github.io/about</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>
