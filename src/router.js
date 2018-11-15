@@ -30,7 +30,7 @@ const ROUTE_INFO = deepFreeze({
     display: 'block',
   },
   [ROUTES[404]]: {
-    title: '404',
+    title: 'Page not found',
     path: '/404',
     display: 'block',
   },
