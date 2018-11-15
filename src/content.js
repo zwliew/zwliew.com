@@ -1,6 +1,5 @@
 import { deepFreeze } from './utils.js';
 import eventBus, { EVENTS } from './eventBus.js';
-import store from './store.js';
 
 const CONTENTS = deepFreeze({
   url: 'data/',
@@ -34,19 +33,18 @@ const LAYOUTS = deepFreeze({
   `),
 });
 
+const cached = new Map();
+
 /**
  * Fetches the data for a page
  */
 async function fetchContent(route) {
-  const content = store.get(route);
-  if (content !== undefined) {
-    return content;
-  }
+  if (cached.has(route)) return cached.get(route);
 
   try {
     const res = await fetch(`${CONTENTS.url}${CONTENTS.routes[route]}`);
     const json = await res.json();
-    store.set(route, json);
+    cached.set(route, json);
     return json;
   } catch (_) {
     return null;
