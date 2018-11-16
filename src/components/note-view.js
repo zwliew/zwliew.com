@@ -12,7 +12,7 @@ template.innerHTML = `
     }
 
     a {
-      color: inherit;
+      color: var(--secondary-color);
     }
 
     #not-found {
