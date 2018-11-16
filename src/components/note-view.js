@@ -16,7 +16,13 @@ template.innerHTML = `
     }
 
     #note {
+      animation: fadein 0.2s ease-out;
       display: none;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
   <route-nav></route-nav>
@@ -45,7 +51,7 @@ class NoteView extends HTMLElement {
     if (id === undefined) return;
 
     this._note.style.display = 'none';
-    this._note.style.display = 'none';
+    this._notFound.style.display = 'none';
 
     const response = await fetch(`data/notes/${id}.md`);
     if (!response.ok) {
