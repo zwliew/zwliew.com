@@ -1,9 +1,10 @@
-// Version 1.2.1
+// Version 1.3.0
 const CACHE_NAME = 'zwliew';
 const URLS_TO_CACHE = [
   '/',
   '/manifest.json',
   '/src/styles.css',
+  '/src/components/note-view.js',
   '/src/components/route-nav.js',
   '/src/components/article-summary.js',
   '/src/components/expandable-content.js',
