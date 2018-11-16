@@ -1,3 +1,5 @@
+import eventBus, { EVENTS } from '/src/eventBus.js';
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
@@ -54,7 +56,13 @@ class ArticleSummary extends HTMLElement {
 
   _onClick() {
     const href = this.getAttribute('href');
-    window.open(href);
+    if (href.startsWith('http')) {
+      open(href);
+    } else {
+      eventBus.post(EVENTS.navigate, {
+        path: href,
+      });
+    }
   }
 }
 

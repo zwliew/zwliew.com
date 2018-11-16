@@ -52,7 +52,7 @@
   </head>
   <body>
     <!-- Home -->
-    <section data-route="home" class="route">
+    <section id="home" data-path="/" class="route">
       <header id="home-header">
         <picture>
           <source srcset="img/profile.webp">
@@ -73,9 +73,9 @@
       </section>
       <nav id="home-nav">
         <ul>
-          <li data-route="notes">notes</li>
-          <li data-route="projects">projects</li>
-          <li data-route="about">about</li>
+          <li data-path="/notes">notes</li>
+          <li data-path="/projects">projects</li>
+          <li data-path="/about">about</li>
         </ul>
       </nav>
       <footer>
@@ -84,21 +84,21 @@
     </section>
 
     <!-- Notes -->
-    <section data-route="notes" class="route">
+    <section data-path="/notes" class="route">
       <route-nav></route-nav>
       <p><em>Click on any of the articles to read on.</em></p>
       <section class="route-content" data-content="notes"></section>
     </section>
 
     <!-- Projects -->
-    <section data-route="projects" class="route">
+    <section data-path="/projects" class="route">
       <route-nav></route-nav>
       <p><em>Click on any of the projects to find out more.</em></p>
       <section class="route-content" data-content="projects"></section>
     </section>
 
     <!-- About -->
-    <section data-route="about" class="route">
+    <section id="about" data-path="/about" class="route">
       <route-nav></route-nav>
       <main>
         <header>
@@ -126,10 +126,14 @@
       </main>
     </section>
 
-    <section data-route="404" class="route">
+    <section data-path="/404" class="route">
       <h1>404</h1>
       <p>We couldn't find the page you're looking for.</p>
       <p>Maybe you were looking for <a href="/">home</a> instead?</p>
+    </section>
+
+    <section class="route" data-path="/notes/id">
+      Route: /notes/id
     </section>
 
     <script type="module" src="src/components/route-nav.js"></script>
@@ -144,9 +148,9 @@
       import { isDayTime } from './src/utils.js';
 
       document.getElementById('home-nav').addEventListener('click', (event) => {
-        const route = event.target.dataset.route;
-        if (!route) return;
-        eventBus.post(EVENTS.navigate, { route });
+        const path = event.target.dataset.path;
+        if (!path) return;
+        eventBus.post(EVENTS.navigate, { path });
       });
 
       document.getElementById('home-footer-theme')
@@ -157,7 +161,7 @@
         });
 
       eventBus.post(EVENTS.navigate, {
-        route: location.pathname.replace(/^\/|\/$/g, ''),
+        path: location.pathname,
         history: 'replace',
       });
       eventBus.post(EVENTS.switchTheme, {

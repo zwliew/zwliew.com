@@ -11,7 +11,7 @@ const CONTENTS = deepFreeze({
 });
 const LAYOUTS = deepFreeze({
   notes: ({ title, summary, id }) => (`
-    <article-summary href="data/notes/${id}.md">
+    <article-summary href="notes/${id}">
       <span slot="title">${title}</span>
       <span slot="summary">${summary}</span>
     </article-summary>
@@ -67,10 +67,10 @@ function layout(content) {
 /**
  * Fetches and formats the data for the body of a route before displaying it
  */
-async function displayRoute({ route, rootEl }) {
-  if (!CONTENTS.routes.hasOwnProperty(route)) return;
+async function displayRoute({ name, params, rootEl }) {
+  if (!CONTENTS.routes.hasOwnProperty(name)) return;
 
-  const content = await fetchContent(route);
+  const content = await fetchContent(name);
   if (content === null) return;
 
   const htmlStrings = layout(content);
@@ -83,4 +83,4 @@ async function displayRoute({ route, rootEl }) {
   })
 };
 
-eventBus.register(EVENTS.navigateLate, (data) => displayRoute(data));
+eventBus.register(EVENTS.navigateLate, data => displayRoute(data));

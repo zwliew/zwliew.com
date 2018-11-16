@@ -61,7 +61,7 @@ a {
 }
 
 /* Home route */
-.route[data-route="home"] {
+#home {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -133,12 +133,12 @@ a {
 }
 
 /* About route */
-.route[data-route="about"] > main {
+#about > main {
   display: flex;
   flex-direction: column;
 }
 
-.route[data-route="about"] > main > header {
+#about > main > header {
   text-align: center;
 }
 

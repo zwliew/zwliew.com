@@ -1,4 +1,4 @@
-// Version 1.1.2
+// Version 1.2.0
 const CACHE_NAME = 'zwliew';
 const URLS_TO_CACHE = [
   '/',

@@ -42,10 +42,10 @@ template.innerHTML = `
     }
   </style>
   <nav id="nav">
-    <span class="link nav-item" data-route="home">home</span>
-    <span class="link nav-item" data-route="notes" >notes</span>
-    <span class="link nav-item" data-route="projects">projects</span>
-    <span class="link nav-item" data-route="about">about</span>
+    <span class="link nav-item" data-path="/home">home</span>
+    <span class="link nav-item" data-path="/notes" >notes</span>
+    <span class="link nav-item" data-path="/projects">projects</span>
+    <span class="link nav-item" data-path="/about">about</span>
     <span class="nav-item theme"></span>
   </nav>
 `;
@@ -76,8 +76,8 @@ class RouteNav extends HTMLElement {
       return;
     }
     if (event.target.className.includes('link')) {
-      const route = event.target.dataset.route;
-      eventBus.post(EVENTS.navigate, { route });
+      const path = event.target.dataset.path;
+      eventBus.post(EVENTS.navigate, { path });
     } else {
       eventBus.post(EVENTS.switchTheme, {
         theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
@@ -85,11 +85,11 @@ class RouteNav extends HTMLElement {
     }
   }
 
-  _updateCurrent({ route }) {
+  _updateCurrent({ path }) {
     for (let i = 0; i < this._links.length; i++) {
       const link = this._links[i];
       if (link.hasAttribute('data-current') ||
-          link.dataset.route === route) {
+          path.test(link.dataset.path)) {
         link.toggleAttribute('data-current');
       }
     }

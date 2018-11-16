@@ -1,74 +1,108 @@
 import eventBus, { EVENTS } from './eventBus.js';
 import { deepFreeze } from './utils.js';
 
-export const ROUTES = deepFreeze({
-  home: 'home',
-  notes: 'notes',
-  projects: 'projects',
-  about: 'about',
-  404: '404',
-});
-const ROUTE_INFO = deepFreeze({
-  [ROUTES.home]: {
+const ROUTES = [
+  {
+    name: 'home',
+    path: /^\/*home\/*$|^\/*$/,
     title: 'Home',
-    path: '/',
     display: 'flex',
   },
-  [ROUTES.notes]: {
+  {
+    name: 'notes',
+    path: /^\/*notes\/*$/,
     title: 'Notes',
-    path: '/notes',
     display: 'block',
   },
-  [ROUTES.projects]: {
+  {
+    name: 'projects',
+    path: /^\/*projects\/*$/,
     title: 'Projects',
-    path: '/projects',
     display: 'block',
   },
-  [ROUTES.about]: {
-    title: 'About',
-    path: '/about',
+  {
+    name: 'about',
+    path: /^\/*about\/*$/,
+    title: 'About me',
     display: 'block',
   },
-  [ROUTES[404]]: {
+  {
+    name: 'noteView',
+    path: /^\/*notes\/*(\w+)\/*$/,
+    title: 'Note view',
+    display: 'block',
+    params: [ 'id' ],
+  },
+  {
+    name: '404',
+    path: /^\/*404\/*$/,
     title: 'Page not found',
-    path: '/404',
     display: 'block',
   },
-});
+];
 
 function handlePopState({ state }) {
   if (state === null) return;
-  updateDOM(state, ROUTE_INFO[state].title);
-}
-
-function updateDOM(route, title) {
-  document.title = title;
-  sectionEls.forEach((el) => {
-    if (el.dataset.route === route) {
-      el.style.display = ROUTE_INFO[route].display;
-    } else {
-      el.style.display = 'none';
-    }
+  eventBus.post(EVENTS.navigate, {
+    path: state,
+    history: null,
   });
 }
 
-function updateHistory(route, title, path, type) {
-  if (type === 'replace') {
-    history.replaceState(route, title, path);
-  } else if (type === 'push') {
-    history.pushState(route, title, path);
+function updateDOM({ path, title, display }) {
+  document.title = title;
+  sectionEls.forEach(el =>
+    el.style.display = path.test(el.dataset.path) ? display : 'none');
+}
+
+function updateHistory({ state, title, url, action }) {
+  switch (action) {
+    case 'replace':
+      history.replaceState(state, title, url);
+      break;
+    case 'push':
+      history.pushState(state, title, url);
+      break;
   }
 }
 
-function navigate({ route, history = 'push' }) {
-  if (route === '') route = ROUTES.home;
-  if (!ROUTES.hasOwnProperty(route)) route = ROUTES[404];
-  const { title, path } = ROUTE_INFO[route];
-  updateDOM(route, title);
-  updateHistory(route, title, path, history);
+function routeFor(path) {
+  for (let route of ROUTES) {
+    const matches = path.match(route.path);
+    if (matches) return { route, matches };
+  }
+  return {
+    route: ROUTES[ROUTES.length - 1],
+    matches: [],
+  };
+}
+
+function navigate({ path, history = 'push' }) {
+  const { route, matches } = routeFor(path);
+
+  // Construct a mapping of key: val pairs for route params
+  const params = matches.slice(1)
+    .reduce((acc, curVal, curIndex) => ({
+      ...acc,
+      [route.params[curIndex]]: curVal,
+    }), {});
+
+  // Display the route and update the browser history
+  updateDOM(route);
+  updateHistory({
+    state: path, // We don't really have any state right now, just the URL
+    title: route.title,
+    url: path,
+    action: history,
+  });
+
+  // TODO: Re-evaluate the need to pass `params`.
+  //       They could probably be obtained `from location.pathname`.
   eventBus.post(EVENTS.navigateLate, {
-    route,
-    rootEl: sectionEls.filter(el => el.dataset.route === route)[0],
+    name: route.name,
+    path: route.path,
+    params,
+    rootEl: sectionEls.filter(el => route.path.test(el.dataset.path))[0],
   });
 }
 
