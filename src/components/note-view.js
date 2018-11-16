@@ -8,7 +8,11 @@ template.innerHTML = `
     }
 
     h1 {
-      border-bottom: 2px solid var(--primary-color-dark);
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    a {
+      color: inherit;
     }
 
     #not-found {

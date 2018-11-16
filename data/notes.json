@@ -1,6 +1,11 @@
 {
   "notes": [
     {
+      "id": 4,
+      "title": "Great reads on various topics (JS, Linux, etc.)",
+      "summary": "I've recently been reading up various books/websites on several topics such as…"
+    },
+    {
       "id": 3,
       "title": "8 Golden Rules of Interface Design",
       "summary": "Shneiderman devised 8 rules of interface design. Elements of these rules can be found in many modern interfaces used today…"
