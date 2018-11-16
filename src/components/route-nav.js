@@ -72,13 +72,12 @@ class RouteNav extends HTMLElement {
   }
 
   _onClick(event) {
-    if (event.target.hasAttribute('data-current')) {
-      return;
-    }
+    if (event.target.hasAttribute('data-current')) return;
+
     if (event.target.className.includes('link')) {
       const path = event.target.dataset.path;
       eventBus.post(EVENTS.navigate, { path });
-    } else {
+    } else if (event.target.className.includes('theme')) {
       eventBus.post(EVENTS.switchTheme, {
         theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
       });
