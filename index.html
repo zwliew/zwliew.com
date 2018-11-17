@@ -30,14 +30,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <style>
       @font-face {
-        font-family: 'Nunito';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Nunito Regular'), local('Nunito-Regular'), url(https://fonts.gstatic.com/s/nunito/v9/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        font-display: swap;
-      }
-      @font-face {
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
@@ -45,10 +37,58 @@
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         font-display: swap;
       }
+      @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Nunito Regular'), local('Nunito-Regular'), url(https://fonts.gstatic.com/s/nunito/v9/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="src/styles.css" rel="stylesheet">
-    <script src="//code.iconify.design/1/1.0.0-rc2/iconify.min.js"></script>
+    <script src="//code.iconify.design/1/1.0.0-rc2/iconify.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js" integrity="sha256-DRnihhtpmuhh8YNHc8+I2VQ/2AUNvaEXzCiAUgst+E0=" crossorigin="anonymous" defer></script>
+    <script type="module" src="src/components/note-view.js"></script>
+    <script type="module" src="src/components/route-nav.js"></script>
+    <script type="module" src="src/components/article-summary.js"></script>
+    <script type="module" src="src/components/expandable-content.js"></script>
+    <script type="module" src="src/content.js"></script>
+    <script type="module" src="src/router.js"></script>
+    <script type="module" src="src/theme.js"></script>
+    <script type="module">
+      import eventBus, { EVENTS } from './src/eventBus.js';
+      import { THEMES, curTheme } from './src/theme.js';
+      import { isDayTime } from './src/utils.js';
+
+      document.getElementById('home-nav').addEventListener('click', (event) => {
+        const path = event.target.dataset.path;
+        if (!path) return;
+        eventBus.post(EVENTS.navigate, { path });
+      });
+
+      document.getElementById('home-footer-theme')
+        .addEventListener('click', (event) => {
+          eventBus.post(EVENTS.switchTheme, {
+            theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
+          });
+        });
+
+      eventBus.post(EVENTS.navigate, {
+        path: location.pathname,
+        history: 'replace',
+      });
+      eventBus.post(EVENTS.switchTheme, {
+        theme: isDayTime() ? THEMES.day : THEMES.night,
+        transition: false,
+      });
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () =>
+          navigator.serviceWorker.register('/sw.js'));
+      }
+    </script>
   </head>
   <body>
     <!-- Home -->
@@ -136,45 +176,5 @@
     </section>
 
     <note-view class="route" data-path="/notes/id"></note-view>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js" integrity="sha256-DRnihhtpmuhh8YNHc8+I2VQ/2AUNvaEXzCiAUgst+E0=" crossorigin="anonymous"></script>
-    <script type="module" src="src/components/note-view.js"></script>
-    <script type="module" src="src/components/route-nav.js"></script>
-    <script type="module" src="src/components/article-summary.js"></script>
-    <script type="module" src="src/components/expandable-content.js"></script>
-    <script type="module" src="src/content.js"></script>
-    <script type="module" src="src/router.js"></script>
-    <script type="module" src="src/theme.js"></script>
-    <script type="module">
-      import eventBus, { EVENTS } from './src/eventBus.js';
-      import { THEMES, curTheme } from './src/theme.js';
-      import { isDayTime } from './src/utils.js';
-
-      document.getElementById('home-nav').addEventListener('click', (event) => {
-        const path = event.target.dataset.path;
-        if (!path) return;
-        eventBus.post(EVENTS.navigate, { path });
-      });
-
-      document.getElementById('home-footer-theme')
-        .addEventListener('click', (event) => {
-          eventBus.post(EVENTS.switchTheme, {
-            theme: curTheme === THEMES.day ? THEMES.night : THEMES.day
-          });
-        });
-
-      eventBus.post(EVENTS.navigate, {
-        path: location.pathname,
-        history: 'replace',
-      });
-      eventBus.post(EVENTS.switchTheme, {
-        theme: isDayTime() ? THEMES.day : THEMES.night,
-        transition: false,
-      });
-
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
-      }
-    </script>
   </body>
 </html>
