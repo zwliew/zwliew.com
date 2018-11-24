@@ -45,7 +45,7 @@ body[switching-theme] {
   transition: all 200ms;
 }
 
-a {
+a[href] {
   color: var(--secondary-color);
 }
 
