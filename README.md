@@ -1,6 +1,6 @@
 # zwliew.github.io
 
-My personal website (portfolio, notes, etc.).
+My personal website comprising my portfolio and some notes.
 
 ## Available hosts:
 https://zwliew.netlify.com (preferred)\
@@ -23,6 +23,7 @@ tested on the latest version of Chrome. Backward compatibility will be
 introduced in the future.
 
 ## Changelog
+16 Nov 2018: Implement a page to view specific notes
 04 Nov 2018: Populate data on the about and project pages with JSON data\
 03 Nov 2018: Simplify DOM queries with a simple DOM manipulation library\
 03 Aug 2018: Switched to Netlify hosting to take advantage of pushState redirects\
