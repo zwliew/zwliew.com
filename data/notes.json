@@ -1,27 +1,27 @@
 {
   "notes": [
     {
-      "id": 4,
-      "title": "Great reads on various topics (JS, Linux, etc.)",
+      "slug": "great-reads-on-various-topics",
+      "title": "Great reads on various topics",
       "summary": "I've recently been reading up various books/websites on several topics such as…"
     },
     {
-      "id": 3,
+      "slug": "8-golden-rules-of-interface-design",
       "title": "8 Golden Rules of Interface Design",
       "summary": "Shneiderman devised 8 rules of interface design. Elements of these rules can be found in many modern interfaces used today…"
     },
     {
-      "id": 2,
+      "slug": "quick-guide-to-dhcp",
       "title": "Quick Guide to DHCP",
       "summary": "The dynamic host configuration protocol, abbreviated as DHCP, is a protocol used in networks for servers to _dynamically_ assign IP addresses to clients in the network…"
     },
     {
-      "id": 1,
+      "slug": "quick-guide-to-regex",
       "title": "Quick Guide to Regex",
       "summary": "Regular expressions, more commonly known as regex, is a powerful way of describing patterns in strings…"
     },
     {
-      "id": 0,
+      "slug": "unicast-multicast-and-broadcast",
       "title": "Unicast, Multicast, and Broadcast",
       "summary": "There are 3 types of traffic in a network: unicast, multicast, and broadcast…"
     }

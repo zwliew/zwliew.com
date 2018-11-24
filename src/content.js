@@ -1,17 +1,14 @@
 import { deepFreeze } from './utils.js';
 import eventBus, { EVENTS } from './eventBus.js';
 
-const CONTENTS = deepFreeze({
-  url: 'data/',
-  routes: {
-    about: 'about.json',
-    projects: 'projects.json',
-    notes: 'notes.json',
-  },
-});
+const CONTENT_ROUTES = [
+  'notes',
+  'projects',
+  'about',
+];
 const LAYOUTS = deepFreeze({
-  notes: ({ title, summary, id }) => (`
-    <article-summary href="notes/${id}">
+  notes: ({ title, summary, slug }) => (`
+    <article-summary href="notes/${slug}">
       <span slot="title">${title}</span>
       <span slot="summary">${summary}</span>
     </article-summary>
@@ -42,7 +39,7 @@ async function fetchContent(route) {
   if (cached.has(route)) return cached.get(route);
 
   try {
-    const res = await fetch(`${CONTENTS.url}${CONTENTS.routes[route]}`);
+    const res = await fetch(`data/${route}.json`);
     const json = await res.json();
     cached.set(route, json);
     return json;
@@ -68,7 +65,7 @@ function layout(content) {
  * Fetches and formats the data for the body of a route before displaying it
  */
 async function displayRoute({ name, params, rootEl }) {
-  if (!CONTENTS.routes.hasOwnProperty(name)) return;
+  if (!CONTENT_ROUTES.includes(name)) return;
 
   const content = await fetchContent(name);
   if (content === null) return;

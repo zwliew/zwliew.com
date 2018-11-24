@@ -51,13 +51,13 @@ class NoteView extends HTMLElement {
     eventBus.register(EVENTS.navigateLate, this._viewNote.bind(this));
   }
 
-  async _viewNote({ params: { id } }) {
-    if (id === undefined) return;
+  async _viewNote({ params: { slug } }) {
+    if (slug === undefined) return;
 
     this._note.style.display = 'none';
     this._notFound.style.display = 'none';
 
-    const response = await fetch(`data/notes/${id}.md`);
+    const response = await fetch(`data/notes/${slug}.md`);
     if (!response.ok) {
       this._notFound.style.display = 'block';
       return;

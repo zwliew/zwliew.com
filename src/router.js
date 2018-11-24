@@ -28,10 +28,10 @@ const ROUTES = [
   },
   {
     name: 'noteView',
-    path: /^\/*notes\/+(\w+)\/*$/,
+    path: /^\/*notes\/+([\w-]+)\/*$/,
     title: 'Note view',
     display: 'block',
-    params: [ 'id' ],
+    params: [ 'slug' ],
   },
   {
     name: '404',
