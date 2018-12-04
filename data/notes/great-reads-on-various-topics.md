@@ -4,6 +4,9 @@ I've recently been reading up various books and articles on several topics such
 as JavaScript and the Linux kernel. Here are some noteworthy reads for
 future reference.
 
+## C
+ * [The C Programming Language (Second Edition)](https://www.oreilly.com/library/view/the-c-programming/9780133086249/)
+
 ## JavaScript
  * [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS/)
  * [Eloquent JavaScript](https://eloquentjavascript.net/)
