@@ -39,7 +39,7 @@ async function fetchContent(route) {
   if (cached.has(route)) return cached.get(route);
 
   try {
-    const res = await fetch(`data/${route}.json`);
+    const res = await fetch(`/res/data/${route}.json`);
     const json = await res.json();
     cached.set(route, json);
     return json;

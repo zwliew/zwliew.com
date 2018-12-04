@@ -57,7 +57,7 @@ class NoteView extends HTMLElement {
     this._note.style.display = 'none';
     this._notFound.style.display = 'none';
 
-    const response = await fetch(`data/notes/${slug}.md`);
+    const response = await fetch(`/res/data/notes/${slug}.md`);
     if (!response.ok) {
       this._notFound.style.display = 'block';
       return;
