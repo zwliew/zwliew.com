@@ -59,8 +59,7 @@
     <script type="module" src="src/theme.js"></script>
     <script type="module">
       import eventBus, { EVENTS } from './src/eventBus.js';
-      import { THEMES, curTheme } from './src/theme.js';
-      import { isDayTime } from './src/utils.js';
+      import { THEMES, curTheme, getPreferredTheme } from './src/theme.js';
 
       document.getElementById('home-nav').addEventListener('click', (event) => {
         const path = event.target.dataset.path;
@@ -80,7 +79,7 @@
         history: 'replace',
       });
       eventBus.post(EVENTS.switchTheme, {
-        theme: isDayTime() ? THEMES.day : THEMES.night,
+        theme: getPreferredTheme(),
         transition: false,
       });
 

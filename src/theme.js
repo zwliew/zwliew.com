@@ -1,4 +1,4 @@
-import { deepFreeze } from './utils.js';
+import { deepFreeze, isDayTime } from './utils.js';
 import eventBus, { EVENTS } from './eventBus.js';
 
 export const THEMES = deepFreeze({
@@ -17,6 +17,15 @@ function switchTheme(theme, transition = true) {
     setTimeout(() => document.body.toggleAttribute('switching-theme'), 300);
   }
   document.body.dataset.theme = curTheme;
+}
+
+export function getPreferredTheme() {
+  // Is system dark mode enabled?
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return THEMES.night;
+  }
+  // Otherwise, is it day or night time?
+  return isDayTime() ? THEMES.day : THEMES.night;
 }
 
 eventBus.register(EVENTS.switchTheme,
