@@ -27,6 +27,12 @@
       "tagline": "for learning on the go",
       "description": "Made to aid myself in my revisions for the GCE A-level examination.",
       "href": "https://github.com/zwliew/flash-cards"
+    },
+    {
+      "name": "Informatif",
+      "tagline": "glanceable headlines for the media sources you care about",
+      "description": "Headlines for a bunch of media sources that I tend to browse through during my free time or commute.",
+      "href": "https://informatif.netlify.com"
     }
   ]
 }
