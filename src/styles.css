@@ -1,108 +1,109 @@
 body {
-	--background-color: #fefefe;
-	--primary-color: #1976d2;
-	--primary-color-dark: #0d47a1;
+  --background-color: #fefefe;
+  --primary-color: #1976d2;
+  --primary-color-dark: #0d47a1;
 
-	background: var(--background-color);
-	font-family: Nunito, Helvetica, Roboto, Arial, sans-serif;
+  background: var(--background-color);
+  font-family: Nunito, Helvetica, Roboto, Arial, sans-serif;
 }
 
 .page {
-	display: flex;
-	padding: 16px;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Header */
 .header {
-	display: flex;
+  display: flex;
 }
 
 .nav {
-	display: flex;
-	margin: 0;
-	padding: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
-	list-style: none;
-	text-transform: lowercase;
+  list-style: none;
+  text-transform: lowercase;
 }
 
 .nav-item:not(:first-of-type)::before {
-	content: '|';
-	margin: 0 4px;
+  content: '|';
+  margin: 0 4px;
 }
 
 .nav-link {
-	color: var(--primary-color-dark);
-	padding: 4px 0;
-	text-decoration: none;
+  color: var(--primary-color-dark);
+  padding: 4px 0;
+  text-decoration: none;
 }
 
 .nav-link:hover {
-	color: var(--primary-color);
-	text-decoration: underline;
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 
 .nav-link-ext::after {
-	content: ' [ext]';
+  content: ' [ext]';
 }
 
 /* Main body */
 .main {
-	margin-top: 32px;
+  margin-top: 32px;
+  max-width: 800px;
 }
 
 .social-link {
-	color: var(--primary-color-dark);
-	display: inline-block;
-	font-size: 0;
-	margin: 0 4px;
+  color: var(--primary-color-dark);
+  display: inline-block;
+  font-size: 0;
+  margin: 0 4px;
 }
 
 .social-link > svg {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .social-link > svg > path {
-	fill: var(--primary-color-dark);
-	transition: fill 0.12s ease-out;
+  fill: var(--primary-color-dark);
+  transition: fill 0.12s ease-out;
 }
 
 .social-link:hover > svg > path {
-	fill: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 /* Section */
 .section:not(:first-child) {
-	margin-top: 16px;
+  margin-top: 16px;
 }
 
 .section-title {
-	margin: 0;
+  margin: 0;
 }
 
 /* Course table */
 .course-table {
-	width: 100%;
-	max-width: 800px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .table-header {
-	background-color: var(--primary-color-dark);
-	color: white;
+  background-color: var(--primary-color-dark);
+  color: white;
 }
 
 @media screen and (min-width: 600px) {
-	.page {
-		padding: 16px 32px;
-	}
+  .page {
+    padding: 16px 32px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
-	.page {
-		padding: 16px 64px;
-	}
+  .page {
+    padding: 16px 64px;
+  }
 }
