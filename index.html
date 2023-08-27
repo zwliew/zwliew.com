@@ -1,57 +1,96 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zhao Wei Liew</title>
+    <meta name="description" content="The personal website of Zhao Wei Liew" />
+    <style>
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 400;
+        src:
+          local("Nunito Regular"),
+          local("Nunito-Regular"),
+          url(https://fonts.gstatic.com/s/nunito/v9/XRXV3I6Li01BKofINeaB.woff2)
+            format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="src/styles.css" rel="stylesheet" />
+    <script
+      src="https://code.iconify.design/2/2.2.1/iconify.min.js"
+      defer
+    ></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zhao Wei Liew</title>
-  <meta name="description" content="The personal website of Zhao Wei Liew">
-  <style>
-    @font-face {
-      font-family: 'Nunito';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Nunito Regular'), local('Nunito-Regular'), url(https://fonts.gstatic.com/s/nunito/v9/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      font-display: swap;
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="src/styles.css" rel="stylesheet">
-  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js" defer></script>
-</head>
-
-<body class="page">
-  <header class="header">
-    <nav>
-      <ul class="nav">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="src/coursework.html" class="nav-link">Coursework</a></li>
-        <li class="nav-item"><a href="https://notes.zwliew.com" class="nav-link nav-link-ext">Notes</a></li>
-        <li class="nav-item"><a href="https://notes.zwliew.com/blog" class="nav-link nav-link-ext">Musings</a></li>
-        <li class="nav-item"><a href="https://blog.zwliew.com/" class="nav-link nav-link-ext">Old musings</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="main">
-    <section class="section">
-      <h3 class="section-title">About me</h3>
-      <p>Hi, I'm Zhao Wei, a Computer Science and Math undergrad at the National University of Singapore.</p>
-      <p>I'm particularly interested in systems programming and backend web development. That said, most things CS and
-        software engineering-related are pretty cool.</p>
-      <p>You can find me on:</p>
-      <a href="https://github.com/zwliew" class="social-link" aria-label="My GitHub profile"><span class="iconify"
-          data-icon="fa:github" /></a>
-      <a href="https://www.linkedin.com/in/zwliew/" class="social-link" aria-label="My LinkedIn profile"><span
-          class="iconify" data-icon="fa:linkedin-square" /></a>
-      <a href="https://stackoverflow.com/users/3237113/zwliew" class="social-link"
-        aria-label="My StackOverflow profile"><span class="iconify" data-icon="fa:stack-overflow" /></a>
-      <a href="mailto:zhaoweiliew@gmail.com" class="social-link" class="My email"><span class="iconify"
-          data-icon="ic:baseline-email" /></a>
-    </section>
-  </main>
-</body>
-
+  <body class="page">
+    <header class="header">
+      <nav>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="src/coursework.html" class="nav-link">Coursework</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://notes.zwliew.com" class="nav-link nav-link-ext"
+              >Notes</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="section">
+        <h3 class="section-title">About me</h3>
+        <p>
+          Hi, I'm Zhao Wei, a Computer Science and Math undergrad at the
+          National University of Singapore.
+        </p>
+        <p>
+          I'm particularly interested in systems programming and backend web
+          development. That said, most things CS and software
+          engineering-related are pretty cool.
+        </p>
+        <p>You can find me on:</p>
+        <a
+          href="https://github.com/zwliew"
+          class="social-link"
+          aria-label="My GitHub profile"
+          ><span class="iconify" data-icon="fa:github"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/zwliew/"
+          class="social-link"
+          aria-label="My LinkedIn profile"
+          ><span class="iconify" data-icon="fa:linkedin-square"
+        /></a>
+        <a
+          href="https://stackoverflow.com/users/3237113/zwliew"
+          class="social-link"
+          aria-label="My StackOverflow profile"
+          ><span class="iconify" data-icon="fa:stack-overflow"
+        /></a>
+        <a
+          href="mailto:zhaoweiliew@gmail.com"
+          class="social-link"
+          class="My email"
+          ><span class="iconify" data-icon="ic:baseline-email"
+        /></a>
+      </section>
+    </main>
+  </body>
 </html>
